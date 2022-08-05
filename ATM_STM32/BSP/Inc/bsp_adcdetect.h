@@ -26,7 +26,7 @@ extern "C" {
 /*--- Public variable declarations ----------------------------------------------------*/
 
 /*--- Public function declarations ----------------------------------------------------*/
-void bsp_ADC_Update();
+void bsp_ADC_Update(void);
 
 
 #ifdef __cplusplus

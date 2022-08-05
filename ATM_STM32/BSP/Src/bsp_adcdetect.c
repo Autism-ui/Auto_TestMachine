@@ -93,11 +93,12 @@ extern "C"
 
 	/*--- Public function definitions -----------------------------------------------------*/
 
-	void bsp_ADC_Update()
+	void bsp_ADC_Update(void)
 	{
 		start_select_adc();
 		// 延时0.5s后再处理数据，防止数据漏处理
 		HAL_Delay(500);
+
 		Update_Channel0_ADC();
 		Update_Channel1_ADC();
 		Update_Channel2_ADC();
