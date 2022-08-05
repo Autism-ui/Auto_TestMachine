@@ -50,7 +50,7 @@ I (../Inc/adc.h)(0x62EC7EE4)
 I (../Inc/dma.h)(0x62EC7EE4)
 I (../Inc/usart.h)(0x62EC7EE6)
 I (../Inc/gpio.h)(0x62EC7EE3)
-I (..\BSP\Inc\bsp_adcdetect.h)(0x62EC902D)
+I (..\BSP\Inc\bsp_adcdetect.h)(0x62ECCD61)
 I (..\BSP\Inc\bsp_usart.h)(0x62EC8FA8)
 F (../Src/gpio.c)(0x62EC7EE3)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\BSP\Inc -I ..\Task\Inc -I ..\Apps\Inc-I.\RTE\_Auto_TestMachine-IE:\Keil530\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IE:\Keil530\Packs\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx-o auto_testmachine\gpio.o --omf_browse auto_testmachine\gpio.crf --depend auto_testmachine\gpio.d)
 I (../Inc/gpio.h)(0x62EC7EE3)
@@ -1124,8 +1124,8 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/portmacro.h
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h)(0x62E8792B)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/task.h)(0x62E8792B)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/list.h)(0x62E8792B)
-F (..\BSP\Src\bsp_adcdetect.c)(0x62EC902D)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\BSP\Inc -I ..\Task\Inc -I ..\Apps\Inc-I.\RTE\_Auto_TestMachine-IE:\Keil530\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IE:\Keil530\Packs\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx-o auto_testmachine\bsp_adcdetect.o --omf_browse auto_testmachine\bsp_adcdetect.crf --depend auto_testmachine\bsp_adcdetect.d)
-I (..\BSP\Inc\bsp_adcdetect.h)(0x62EC902D)
+F (..\BSP\Src\bsp_adcdetect.c)(0x62ECCCE1)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\BSP\Inc -I ..\Task\Inc -I ..\Apps\Inc-I.\RTE\_Auto_TestMachine-IE:\Keil530\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IE:\Keil530\Packs\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx-o auto_testmachine\bsp_adcdetect.o --omf_browse auto_testmachine\bsp_adcdetect.crf --depend auto_testmachine\bsp_adcdetect.d)
+I (..\BSP\Inc\bsp_adcdetect.h)(0x62ECCD61)
 I (../Inc/adc.h)(0x62EC7EE4)
 I (../Inc/main.h)(0x62EC7EE7)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x62E87968)

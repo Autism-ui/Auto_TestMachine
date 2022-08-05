@@ -20,13 +20,19 @@ extern "C"
 
 	/*--- Public variable definitions -----------------------------------------------------*/
 
-	uint16_t ADC_Select[ADC_CHANNEL_NUM] = {0};
-	float Cur_Value[ADC_CHANNEL_NUM];
-
 /*--- Private macros ------------------------------------------------------------------*/
+#define ADC_CHANNEL_NUM 4
 #define Avg_Num 10
+#define ADC_Conversion_Ratio 4096.0f
+#define ADC_Coefficient 3.3f
+#define ADC_Delay(a) HAL_Delay(a)
 	/*--- Private type definitions --------------------------------------------------------*/
-
+#define ADC_INIT          \
+	{                     \
+		CHANNEL0,         \
+			ADC_DMA_INIT, \
+			0.0f,         \
+	}
 	/* 暂定4通道，后期更改enum内的定义 */
 	typedef enum
 	{
@@ -35,60 +41,78 @@ extern "C"
 		CHANNEL2,	  // PC2
 		CHANNEL3,	  // PC3
 	} CHANNEL_STU;
+
+	typedef enum
+	{
+		ADC_DMA_INIT,
+		ADC_DMA_CLOSE,
+		ADC_DMA_OPEN,
+	} ADC_DMA_STU;
+
+	typedef struct ADC_CHANNEL
+	{
+		CHANNEL_STU CHANNEL;
+		ADC_DMA_STU ADC_DMA_Statu;
+		float ADC_Voltage[ADC_CHANNEL_NUM];
+	} ADC_CHANNEL_t;
+
 	/*--- Private variable definitions ----------------------------------------------------*/
-
+	ADC_CHANNEL_t ADC_CHANNEL = ADC_INIT;
+	uint16_t ADC_Select[ADC_CHANNEL_NUM] = {0};
+	float Cur_Value[ADC_CHANNEL_NUM];
 	/*--- Private function declarations ---------------------------------------------------*/
-	void Update_Channel0_ADC()
+	static uint32_t Select_ADC(CHANNEL_STU CHANNEL)
 	{
 		uint32_t sum = 0;
 		for (int i = 0; i < Avg_Num; i++)
 		{
-			sum += ADC_Select[CHANNEL0];
+			sum += ADC_Select[CHANNEL];
 		}
-		uint32_t avg = sum / Avg_Num;
-		Cur_Value[CHANNEL0] = ((float)avg / 4096.0 * 3.3);
+		return (sum / Avg_Num);
 	}
 
-	void Update_Channel1_ADC()
+	static void Update_Channel0_ADC()
 	{
-		uint32_t sum = 0;
-		for (int i = 0; i < Avg_Num; i++)
-		{
-			sum += ADC_Select[CHANNEL1];
-		}
-		uint32_t avg = sum / Avg_Num;
-		Cur_Value[CHANNEL1] = ((float)avg / 4096.0 * 3.3);
+		ADC_CHANNEL.CHANNEL = CHANNEL0;
+		uint32_t avg = Select_ADC(ADC_CHANNEL.CHANNEL);
+		Cur_Value[ADC_CHANNEL.CHANNEL] = ((float)avg / ADC_Conversion_Ratio * ADC_Coefficient);
+		ADC_CHANNEL.ADC_Voltage[ADC_CHANNEL.CHANNEL] = Cur_Value[ADC_CHANNEL.CHANNEL];
+	}
+
+	static void Update_Channel1_ADC()
+	{
+		ADC_CHANNEL.CHANNEL = CHANNEL1;
+		uint32_t avg = Select_ADC(ADC_CHANNEL.CHANNEL);
+		Cur_Value[ADC_CHANNEL.CHANNEL] = ((float)avg / ADC_Conversion_Ratio * ADC_Coefficient);
+		ADC_CHANNEL.ADC_Voltage[ADC_CHANNEL.CHANNEL] = Cur_Value[ADC_CHANNEL.CHANNEL];
 	}
 	/*--- Private function definitions ----------------------------------------------------*/
-	void Update_Channel2_ADC()
+	static void Update_Channel2_ADC()
 	{
-		uint32_t sum = 0;
-		for (int i = 0; i < Avg_Num; i++)
-		{
-			sum += ADC_Select[CHANNEL2];
-		}
-		uint32_t avg = sum / Avg_Num;
-		Cur_Value[CHANNEL2] = ((float)avg / 4096.0 * 3.3);
+		ADC_CHANNEL.CHANNEL = CHANNEL2;
+		uint32_t avg = Select_ADC(ADC_CHANNEL.CHANNEL);
+		Cur_Value[ADC_CHANNEL.CHANNEL] = ((float)avg / ADC_Conversion_Ratio * ADC_Coefficient);
+		ADC_CHANNEL.ADC_Voltage[ADC_CHANNEL.CHANNEL] = Cur_Value[ADC_CHANNEL.CHANNEL];
 	}
-	void Update_Channel3_ADC()
+
+	static void Update_Channel3_ADC()
 	{
-		uint32_t sum = 0;
-		for (int i = 0; i < Avg_Num; i++)
-		{
-			sum += ADC_Select[CHANNEL3];
-		}
-		uint32_t avg = sum / Avg_Num;
-		Cur_Value[CHANNEL3] = ((float)avg / 4096.0 * 3.3);
+		ADC_CHANNEL.CHANNEL = CHANNEL3;
+		uint32_t avg = Select_ADC(ADC_CHANNEL.CHANNEL);
+		Cur_Value[ADC_CHANNEL.CHANNEL] = ((float)avg / ADC_Conversion_Ratio * ADC_Coefficient);
+		ADC_CHANNEL.ADC_Voltage[ADC_CHANNEL.CHANNEL] = Cur_Value[ADC_CHANNEL.CHANNEL];
 	}
-	/*--- Private function definitions ----------------------------------------------------*/
-	void start_select_adc()
+
+	static void start_select_adc()
 	{
 		HAL_ADC_Start_DMA(&hadc1, (uint32_t *)ADC_Select, ADC_CHANNEL_NUM); // 启动DMA
+		ADC_CHANNEL.ADC_DMA_Statu = ADC_DMA_OPEN;
 	}
 
-	void end_select_adc()
+	static void end_select_adc()
 	{
 		HAL_ADC_Stop_DMA(&hadc1); // 关闭DMA
+		ADC_CHANNEL.ADC_DMA_Statu = ADC_DMA_CLOSE;
 	}
 
 	/*--- Public function definitions -----------------------------------------------------*/
@@ -97,7 +121,7 @@ extern "C"
 	{
 		start_select_adc();
 		// 延时0.5s后再处理数据，防止数据漏处理
-		HAL_Delay(500);
+		ADC_Delay(500);
 
 		Update_Channel0_ADC();
 		Update_Channel1_ADC();
@@ -105,6 +129,26 @@ extern "C"
 		Update_Channel3_ADC();
 
 		end_select_adc();
+	}
+
+	float Get_CHANNEL0_ADC()
+	{
+		return ADC_CHANNEL.ADC_Voltage[CHANNEL0];
+	}
+
+	float Get_CHANNEL1_ADC()
+	{
+		return ADC_CHANNEL.ADC_Voltage[CHANNEL1];
+	}
+
+	float Get_CHANNEL2_ADC()
+	{
+		return ADC_CHANNEL.ADC_Voltage[CHANNEL2];
+	}
+
+	float Get_CHANNEL3_ADC()
+	{
+		return ADC_CHANNEL.ADC_Voltage[CHANNEL3];
 	}
 
 #ifdef __cplusplus
