@@ -5,6 +5,7 @@
 "auto_testmachine\adc.o"
 "auto_testmachine\dma.o"
 "auto_testmachine\freertos.o"
+"auto_testmachine\usart.o"
 "auto_testmachine\stm32f4xx_it.o"
 "auto_testmachine\stm32f4xx_hal_msp.o"
 "auto_testmachine\stm32f4xx_hal_timebase_tim.o"
@@ -25,6 +26,7 @@
 "auto_testmachine\stm32f4xx_hal_exti.o"
 "auto_testmachine\stm32f4xx_hal_tim.o"
 "auto_testmachine\stm32f4xx_hal_tim_ex.o"
+"auto_testmachine\stm32f4xx_hal_uart.o"
 "auto_testmachine\system_stm32f4xx.o"
 "auto_testmachine\croutine.o"
 "auto_testmachine\event_groups.o"
@@ -37,6 +39,7 @@
 "auto_testmachine\heap_4.o"
 "auto_testmachine\port.o"
 "auto_testmachine\bsp_adcdetect.o"
+"auto_testmachine\bsp_usart.o"
 --library_type=microlib --strict --scatter "Auto_TestMachine\Auto_TestMachine.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

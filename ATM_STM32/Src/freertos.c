@@ -27,6 +27,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */     
 #include "adc.h"
+#include "usart.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -53,7 +54,7 @@ osThreadId_t Init_TaskHandle;
 const osThreadAttr_t Init_Task_attributes = {
   .name = "Init_Task",
   .priority = (osPriority_t) osPriorityNormal,
-  .stack_size = 128 * 4
+  .stack_size = 512 * 4
 };
 
 /* Private function prototypes -----------------------------------------------*/
@@ -108,21 +109,25 @@ void MX_FREERTOS_Init(void) {
   * @param  argument: Not used 
   * @retval None
   */
+int i = 0;
 /* USER CODE END Header_Init_taskFunction */
 void Init_taskFunction(void *argument)
 {
   /* USER CODE BEGIN Init_taskFunction */
 	TickType_t xLastWakeTime;
 	xLastWakeTime = xTaskGetTickCount();
-	
+
+	uint8_t SendData[] = "successful!\r\n";
 	
   /* Infinite loop */
-//  for(;;)
-//  {
-//    
-//		vTaskDelayUntil(&xLastWakeTime,100/portTICK_RATE_MS);
-//  }
-	vTaskDelete(NULL);
+  for(;;)
+  {	
+		i++;
+		//HAL_UART_Transmit_DMA(&huart3,SendData,sizeof(SendData));
+		HAL_UART_Transmit(&huart3,SendData,sizeof(SendData),0xFF);
+		vTaskDelayUntil(&xLastWakeTime,1000/portTICK_RATE_MS);
+  }
+//	vTaskDelete(NULL);
   /* USER CODE END Init_taskFunction */
 }
 

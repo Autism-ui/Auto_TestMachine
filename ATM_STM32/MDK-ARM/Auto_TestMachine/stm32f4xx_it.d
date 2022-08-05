@@ -32,6 +32,7 @@ auto_testmachine\stm32f4xx_it.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_h
 auto_testmachine\stm32f4xx_it.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h
 auto_testmachine\stm32f4xx_it.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 auto_testmachine\stm32f4xx_it.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
+auto_testmachine\stm32f4xx_it.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 auto_testmachine\stm32f4xx_it.o: ../Inc/stm32f4xx_it.h
 auto_testmachine\stm32f4xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 auto_testmachine\stm32f4xx_it.o: ../Inc/FreeRTOSConfig.h
@@ -42,3 +43,5 @@ auto_testmachine\stm32f4xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/port
 auto_testmachine\stm32f4xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
 auto_testmachine\stm32f4xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
 auto_testmachine\stm32f4xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
+auto_testmachine\stm32f4xx_it.o: ..\BSP\Inc\bsp_usart.h
+auto_testmachine\stm32f4xx_it.o: ../Inc/usart.h

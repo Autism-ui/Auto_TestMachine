@@ -21,8 +21,8 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.7.0
 Dialog DLL:      TCM.DLL V1.42.0.0
  
 <h2>Project:</h2>
-E:\Work\FlyFire_Work\Auto_TestMachine\MDK-ARM\Auto_TestMachine.uvprojx
-Project File Date:  08/03/2022
+E:\Work\FlyFire_Work\Auto_TestMachine\Auto_TestMachine\ATM_STM32\MDK-ARM\Auto_TestMachine.uvprojx
+Project File Date:  08/05/2022
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'E:\Keil530\ARM\ARMCC\Bin'
@@ -30,13 +30,19 @@ Build target 'Auto_TestMachine'
 compiling bsp_adcdetect.c...
 ..\BSP\Inc\bsp_adcdetect.h(29): warning:  #1295-D: Deprecated declaration bsp_ADC_Update - give arg types
   void bsp_ADC_Update();
-..\BSP\Src\bsp_adcdetect.c(45): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  	return (float)avg/4096.0*3.3;
-..\BSP\Src\bsp_adcdetect.c: 2 warnings, 0 errors
+..\BSP\Src\bsp_adcdetect.c(49): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  		Cur_Value[CHANNEL0] = ((float)avg / 4096.0 * 3.3);
+..\BSP\Src\bsp_adcdetect.c(60): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  		Cur_Value[CHANNEL1] = ((float)avg / 4096.0 * 3.3);
+..\BSP\Src\bsp_adcdetect.c(71): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  		Cur_Value[CHANNEL2] = ((float)avg / 4096.0 * 3.3);
+..\BSP\Src\bsp_adcdetect.c(81): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  		Cur_Value[CHANNEL3] = ((float)avg / 4096.0 * 3.3);
+..\BSP\Src\bsp_adcdetect.c: 5 warnings, 0 errors
 linking...
-Program Size: Code=13460 RO-data=504 RW-data=148 ZI-data=19916  
+Program Size: Code=15012 RO-data=504 RW-data=152 ZI-data=20096  
 FromELF: creating hex file...
-"Auto_TestMachine\Auto_TestMachine.axf" - 0 Error(s), 2 Warning(s).
+"Auto_TestMachine\Auto_TestMachine.axf" - 0 Error(s), 5 Warning(s).
 
 <h2>Software Packages used:</h2>
 
