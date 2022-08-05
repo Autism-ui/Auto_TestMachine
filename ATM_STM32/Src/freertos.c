@@ -108,18 +108,15 @@ void MX_FREERTOS_Init(void)
  * @retval None
  */
 /* USER CODE END Header_Init_taskFunction */
-void Init_taskFunction(void *argument)
+__weak void Init_taskFunction(void *argument)
 {
   /* USER CODE BEGIN Init_taskFunction */
   TickType_t xLastWakeTime;
   xLastWakeTime = xTaskGetTickCount();
 
-  uint8_t SendData[] = "successful!\r\n";
-
   /* Infinite loop */
   for (;;)
   {
-    HAL_UART_Transmit(&huart3, SendData, sizeof(SendData), 0xFF);
     vTaskDelayUntil(&xLastWakeTime, 1000 / portTICK_RATE_MS);
   }
   //	vTaskDelete(NULL);

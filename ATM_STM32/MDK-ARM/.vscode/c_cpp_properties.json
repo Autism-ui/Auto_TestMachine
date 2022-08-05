@@ -19,7 +19,9 @@
                 "e:\\Work\\FlyFire_Work\\Auto_TestMachine\\Auto_TestMachine\\ATM_STM32\\Drivers\\STM32F4xx_HAL_Driver\\Src",
                 "e:\\Work\\FlyFire_Work\\Auto_TestMachine\\Auto_TestMachine\\ATM_STM32\\Middlewares\\Third_Party\\FreeRTOS\\Source",
                 "e:\\Work\\FlyFire_Work\\Auto_TestMachine\\Auto_TestMachine\\ATM_STM32\\Middlewares\\Third_Party\\FreeRTOS\\Source\\portable\\MemMang",
-                "e:\\Work\\FlyFire_Work\\Auto_TestMachine\\Auto_TestMachine\\ATM_STM32\\BSP\\Src"
+                "e:\\Work\\FlyFire_Work\\Auto_TestMachine\\Auto_TestMachine\\ATM_STM32\\BSP\\Src",
+                "e:\\Work\\FlyFire_Work\\Auto_TestMachine\\Auto_TestMachine\\ATM_STM32\\Apps\\Src",
+                "e:\\Work\\FlyFire_Work\\Auto_TestMachine\\Auto_TestMachine\\ATM_STM32\\Task\\Src"
             ],
             "defines": [
                 "USE_HAL_DRIVER",

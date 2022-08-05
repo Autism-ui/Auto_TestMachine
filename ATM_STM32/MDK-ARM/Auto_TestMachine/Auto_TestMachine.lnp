@@ -40,6 +40,8 @@
 "auto_testmachine\port.o"
 "auto_testmachine\bsp_adcdetect.o"
 "auto_testmachine\bsp_usart.o"
+"auto_testmachine\adc_collect.o"
+"auto_testmachine\init_task.o"
 --library_type=microlib --strict --scatter "Auto_TestMachine\Auto_TestMachine.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

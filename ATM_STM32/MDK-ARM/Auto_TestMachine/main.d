@@ -48,5 +48,3 @@ auto_testmachine\main.o: ../Inc/adc.h
 auto_testmachine\main.o: ../Inc/dma.h
 auto_testmachine\main.o: ../Inc/usart.h
 auto_testmachine\main.o: ../Inc/gpio.h
-auto_testmachine\main.o: ..\BSP\Inc\bsp_adcdetect.h
-auto_testmachine\main.o: ..\BSP\Inc\bsp_usart.h

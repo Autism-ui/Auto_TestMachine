@@ -21,9 +21,16 @@ extern "C"
 /*--- Public dependencies -------------------------------------------------------------*/
 #include "adc.h"
     /*--- Public macros -------------------------------------------------------------------*/
-
+#define ADC_CHANNEL_NUM 4
     /*--- Public type definitions ---------------------------------------------------------*/
-
+    /* 暂定4通道，后期更改enum内的定义 */
+    typedef enum
+    {
+        CHANNEL0 = 0, // PC0
+        CHANNEL1,     // PC1
+        CHANNEL2,     // PC2
+        CHANNEL3,     // PC3
+    } CHANNEL_STU;
     /*--- Public variable declarations ----------------------------------------------------*/
 
     /*--- Public function declarations ----------------------------------------------------*/

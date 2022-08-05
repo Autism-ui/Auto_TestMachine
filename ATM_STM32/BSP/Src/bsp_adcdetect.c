@@ -21,7 +21,6 @@ extern "C"
 	/*--- Public variable definitions -----------------------------------------------------*/
 
 /*--- Private macros ------------------------------------------------------------------*/
-#define ADC_CHANNEL_NUM 4
 #define Avg_Num 10
 #define ADC_Conversion_Ratio 4096.0f
 #define ADC_Coefficient 3.3f
@@ -33,14 +32,6 @@ extern "C"
 			ADC_DMA_INIT, \
 			0.0f,         \
 	}
-	/* 暂定4通道，后期更改enum内的定义 */
-	typedef enum
-	{
-		CHANNEL0 = 0, // PC0
-		CHANNEL1,	  // PC1
-		CHANNEL2,	  // PC2
-		CHANNEL3,	  // PC3
-	} CHANNEL_STU;
 
 	typedef enum
 	{

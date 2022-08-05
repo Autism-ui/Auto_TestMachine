@@ -3,6 +3,8 @@
         "bsp_usart.h": "c",
         "usart.h": "c",
         "stdlib.h": "c",
-        "bsp_adcdetect.h": "c"
+        "bsp_adcdetect.h": "c",
+        "adc_collect.h": "c",
+        "init_task.h": "c"
     }
 }
