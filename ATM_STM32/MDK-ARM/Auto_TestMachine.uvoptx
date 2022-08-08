@@ -168,12 +168,12 @@
         <Ww>
           <count>3</count>
           <WinNumber>1</WinNumber>
-          <ItemText>i</ItemText>
+          <ItemText>ADC_CHANNEL,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>4</count>
           <WinNumber>1</WinNumber>
-          <ItemText>ADC_CHANNEL,0x0A</ItemText>
+          <ItemText>ADC_COLLECT</ItemText>
         </Ww>
       </WatchWindow1>
       <Tracepoint>

@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "bsp_adcdetect.h": "c"
+        "bsp_adcdetect.h": "c",
+        "adc_collect.h": "c"
     }
 }
