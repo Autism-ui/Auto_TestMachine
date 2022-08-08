@@ -34,7 +34,11 @@ extern "C"
     {
         USART3_DMA_Init();
         bsp_ADC_Update();
+#ifdef DOUBLE_BUFFER
+        Enable_Uart3();
+#endif
     }
+
     /*--- Private function definitions ----------------------------------------------------*/
     void Init_taskFunction(void *argument)
     {
@@ -42,7 +46,6 @@ extern "C"
         ADC_Detect();
 
         osDelay(1000);
-
         vTaskDelete(NULL);
     }
     /*--- Public function definitions -----------------------------------------------------*/

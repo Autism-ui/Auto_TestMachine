@@ -26,12 +26,12 @@ extern "C"
 #define ADC_Coefficient 3.3f
 #define ADC_Delay(a) HAL_Delay(a)
 	/*--- Private type definitions --------------------------------------------------------*/
-#define ADC_INIT          \
-	{                     \
-		CHANNEL0,         \
-			ADC_DMA_INIT, \
-			0.0f,         \
-	}
+	// #define ADC_INIT          \
+// 	{                     \
+// 		CHANNEL0,         \
+// 			ADC_DMA_INIT, \
+// 			0.0f,         \
+// 	}
 
 	typedef enum
 	{
@@ -48,7 +48,12 @@ extern "C"
 	} ADC_CHANNEL_t;
 
 	/*--- Private variable definitions ----------------------------------------------------*/
-	ADC_CHANNEL_t ADC_CHANNEL = ADC_INIT;
+	// ADC_CHANNEL_t ADC_CHANNEL = ADC_INIT;
+	ADC_CHANNEL_t ADC_CHANNEL = {
+		.CHANNEL = CHANNEL0,
+		.ADC_DMA_Statu = ADC_DMA_INIT,
+		.ADC_Voltage = 0.0f,
+	};
 	uint16_t ADC_Select[ADC_CHANNEL_NUM] = {0};
 	float Cur_Value[ADC_CHANNEL_NUM];
 	/*--- Private function declarations ---------------------------------------------------*/

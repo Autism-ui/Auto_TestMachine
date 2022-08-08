@@ -50,3 +50,4 @@ auto_testmachine\init_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_
 auto_testmachine\init_task.o: ..\Apps\Inc\adc_collect.h
 auto_testmachine\init_task.o: ..\BSP\Inc\bsp_usart.h
 auto_testmachine\init_task.o: ../Inc/usart.h
+auto_testmachine\init_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h

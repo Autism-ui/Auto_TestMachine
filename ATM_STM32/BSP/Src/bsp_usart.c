@@ -20,18 +20,24 @@ extern "C"
     /*--- Private dependencies ------------------------------------------------------------*/
 #include "stdlib.h"
 #include "string.h"
-
-    /*--- Public variable definitions -----------------------------------------------------*/
+/*--- Public variable definitions -----------------------------------------------------*/
+#ifndef DOUBLE_BUFFER
     uint8_t INTERACT_BUFF[BUFF_LEN];
-    /*--- Private macros ------------------------------------------------------------------*/
+#endif
+#ifdef DOUBLE_BUFFER
+    xQueueHandle Queue_Receive;
+    USART_DATA_t Receive_Data[2];
+#endif
+/*--- Private macros ------------------------------------------------------------------*/
 
-    /*--- Private type definitions --------------------------------------------------------*/
+/*--- Private type definitions --------------------------------------------------------*/
 
-    /*--- Private variable definitions ----------------------------------------------------*/
+/*--- Private variable definitions ----------------------------------------------------*/
 
-    /*--- Private function declarations ---------------------------------------------------*/
+/*--- Private function declarations ---------------------------------------------------*/
 
-    /*--- Private function definitions ----------------------------------------------------*/
+/*--- Private function definitions ----------------------------------------------------*/
+#ifndef DOUBLE_BUFFER
     /**
      * @brief      Enable global uart it and do not use DMA transfer done it
      * @param[in]  huart: uart IRQHandler id
@@ -145,6 +151,46 @@ extern "C"
 
         UART_Receive_DMA_No_IT(&huart3, INTERACT_BUFF, BUFF_MAX_LEN);
     }
+#endif
+#ifdef DOUBLE_BUFFER
+    void DMA_M0_RC_Callback(DMA_HandleTypeDef *hdma)
+    {
+        BaseType_t xHigherPriorityTaskWoken;
+        Receive_Data[0].len = hdma->Instance->NDTR;
+        xQueueSendFromISR(Queue_Receive, &Receive_Data[0], &xHigherPriorityTaskWoken);
+        portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
+    }
+
+    void DMA_M1_RC_Callback(DMA_HandleTypeDef *hdma)
+    {
+        BaseType_t xHigherPriorityTaskWoken;
+        Receive_Data[1].len = hdma->Instance->NDTR;
+        xQueueSendFromISR(Queue_Receive, &Receive_Data[1], &xHigherPriorityTaskWoken);
+        portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
+    }
+
+    // DMA 传输错误回调函数
+    void DMA_Error_Callback(DMA_HandleTypeDef *hdma)
+    {
+        // 异常处理
+    }
+
+    void Enable_Uart3(void)
+    {
+        uint32_t u32wk0;
+        SET_BIT(huart3.Instance->CR3, USART_CR3_DMAR);
+        HAL_DMAEx_MultiBufferStart_IT(&hdma_usart3_rx,
+                                      (uint32_t)(&huart3.Instance->DR),
+                                      (uint32_t)&Receive_Data[0].data[0],
+                                      (uint32_t)&Receive_Data[1].data[0],
+                                      UART_BUFF_SIZE);
+
+        // 解决DMA在启动时，如果收到大量的数据会出现死机的问题
+        u32wk0 = huart3.Instance->SR;
+        u32wk0 = huart3.Instance->DR;
+        UNUSED(u32wk0);
+    }
+#endif
 
 #ifdef __cplusplus
 }

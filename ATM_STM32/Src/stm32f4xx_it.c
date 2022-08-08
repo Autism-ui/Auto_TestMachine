@@ -200,6 +200,7 @@ void USART3_IRQHandler(void)
   /* USER CODE BEGIN USART3_IRQn 0 */
 	USART3_Receive_Handler(&huart3,BUFF_MAX_LEN,BUFF_LEN);
   /* USER CODE END USART3_IRQn 0 */
+  HAL_UART_IRQHandler(&huart3);
   /* USER CODE BEGIN USART3_IRQn 1 */
 
   /* USER CODE END USART3_IRQn 1 */
