@@ -51,3 +51,4 @@ auto_testmachine\init_task.o: ..\Apps\Inc\adc_collect.h
 auto_testmachine\init_task.o: ..\BSP\Inc\bsp_usart.h
 auto_testmachine\init_task.o: ../Inc/usart.h
 auto_testmachine\init_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
+auto_testmachine\init_task.o: ..\Task\Inc\UsartInteract_Task.h

@@ -23,6 +23,7 @@ extern "C"
 /*--- Public variable definitions -----------------------------------------------------*/
 #ifndef DOUBLE_BUFFER
     uint8_t INTERACT_BUFF[BUFF_LEN];
+    xQueueHandle Queue_Receive;
 #endif
 #ifdef DOUBLE_BUFFER
     xQueueHandle Queue_Receive;
@@ -49,7 +50,6 @@ extern "C"
     {
         uint32_t tem = 0;
         tem = huart->RxState;
-
         if (tem == HAL_UART_STATE_READY)
         {
             if ((pData == NULL) || (Size == 0))
@@ -89,8 +89,14 @@ extern "C"
      * @param[in]   buff: the buff which saved raw rc data
      * @retval
      */
-    void Data_Callback_Handler()
+    uint8_t sdata[BUFF_LEN];
+    static void Data_Callback_Handler()
     {
+        BaseType_t xHigherPriorityTaskWoken;
+        memcpy(sdata, INTERACT_BUFF, sizeof(INTERACT_BUFF));
+        xQueueSendFromISR(Queue_Receive, &INTERACT_BUFF, &xHigherPriorityTaskWoken);
+        /*如果xHigherPriorityTaskWoken == pdTRUE的话，在中断服务函数执行完之后进行一次任务切换*/
+        portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
     }
 
     /**
@@ -109,14 +115,12 @@ extern "C"
         if (huart == &huart3)
         {
             __HAL_DMA_DISABLE(huart->hdmarx);
-
             /* 从DMA处理 */
             if ((MAX_LEN - DMA_Current_data_counter(huart->hdmarx->Instance)) == LEN)
             {
                 // 这里写一个解包处理函数
                 Data_Callback_Handler();
             }
-
             /* 重新启动DMA */
             __HAL_DMA_SET_COUNTER(huart->hdmarx, BUFF_MAX_LEN);
             __HAL_DMA_ENABLE(huart->hdmarx);

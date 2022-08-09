@@ -10,7 +10,7 @@
 /* file 'LICENSE.txt', which is part of this source code package.*/
 /*****************************************************************/
 
-#include "Init_task.h"
+#include "UsartInteract_Task.h"
 
 #ifdef __cplusplus
 extern "C"
@@ -18,43 +18,41 @@ extern "C"
 #endif
 
     /*--- Private dependencies ------------------------------------------------------------*/
-#include "bsp_adcdetect.h"
-#include "adc_collect.h"
 #include "bsp_usart.h"
-
-#include "UsartInteract_Task.h" // 串口交互任务
-
     /*--- Public variable definitions -----------------------------------------------------*/
-
+    uint8_t data[BUFF_LEN];
     /*--- Private macros ------------------------------------------------------------------*/
 
     /*--- Private type definitions --------------------------------------------------------*/
 
     /*--- Private variable definitions ----------------------------------------------------*/
-
+    static TaskHandle_t UsartInteractTaskHandle;
     /*--- Private function declarations ---------------------------------------------------*/
-    static void Device_Init()
-    {
-        USART3_DMA_Init();
-        bsp_ADC_Update();
-#ifdef DOUBLE_BUFFER
-        Enable_Uart3();
-#endif
-    }
+
     /*--- Private function definitions ----------------------------------------------------*/
-    void Init_taskFunction(void *argument)
-    {
-        Device_Init();
-        ADC_Detect();
 
-        osDelay(1000);
-
-        UsartInteract_TaskCreate(osPriorityNormal); // 串口交互任务
-
-        vTaskDelete(NULL);
-    }
     /*--- Public function definitions -----------------------------------------------------*/
-
+    void UsartInteractTask(void *param)
+    {
+        portBASE_TYPE xStatus = pdFALSE;
+        Queue_Receive = xQueueCreate(3, sizeof(data));
+        for (;;)
+        {
+            xStatus = xQueueReceive(Queue_Receive, &data, portMAX_DELAY);
+            if (xStatus == pdTRUE)
+            {
+                HAL_UART_Transmit(&huart3, "Successful\r\n", sizeof("Successful\r\n"), 100);
+            }
+        }
+    }
+    void UsartInteract_TaskCreate(osPriority_t _priority)
+    {
+        BaseType_t ret;
+        ret = xTaskCreate(UsartInteractTask, "UsartInteract", 512, NULL, _priority, &UsartInteractTaskHandle);
+        if (ret != pdTRUE)
+        {
+        }
+    }
 #ifdef __cplusplus
 }
 #endif

@@ -67,33 +67,10 @@ extern "C"
 		return (sum / Avg_Num);
 	}
 
-	static void Update_Channel0_ADC()
-	{
-		ADC_CHANNEL.CHANNEL = CHANNEL0;
-		uint32_t avg = Select_ADC(ADC_CHANNEL.CHANNEL);
-		Cur_Value[ADC_CHANNEL.CHANNEL] = ((float)avg / ADC_Conversion_Ratio * ADC_Coefficient);
-		ADC_CHANNEL.ADC_Voltage[ADC_CHANNEL.CHANNEL] = Cur_Value[ADC_CHANNEL.CHANNEL];
-	}
-
-	static void Update_Channel1_ADC()
-	{
-		ADC_CHANNEL.CHANNEL = CHANNEL1;
-		uint32_t avg = Select_ADC(ADC_CHANNEL.CHANNEL);
-		Cur_Value[ADC_CHANNEL.CHANNEL] = ((float)avg / ADC_Conversion_Ratio * ADC_Coefficient);
-		ADC_CHANNEL.ADC_Voltage[ADC_CHANNEL.CHANNEL] = Cur_Value[ADC_CHANNEL.CHANNEL];
-	}
 	/*--- Private function definitions ----------------------------------------------------*/
-	static void Update_Channel2_ADC()
+	static void Update_Channelx_ADC(CHANNEL_STU CHANNEL)
 	{
-		ADC_CHANNEL.CHANNEL = CHANNEL2;
-		uint32_t avg = Select_ADC(ADC_CHANNEL.CHANNEL);
-		Cur_Value[ADC_CHANNEL.CHANNEL] = ((float)avg / ADC_Conversion_Ratio * ADC_Coefficient);
-		ADC_CHANNEL.ADC_Voltage[ADC_CHANNEL.CHANNEL] = Cur_Value[ADC_CHANNEL.CHANNEL];
-	}
-
-	static void Update_Channel3_ADC()
-	{
-		ADC_CHANNEL.CHANNEL = CHANNEL3;
+		ADC_CHANNEL.CHANNEL = CHANNEL;
 		uint32_t avg = Select_ADC(ADC_CHANNEL.CHANNEL);
 		Cur_Value[ADC_CHANNEL.CHANNEL] = ((float)avg / ADC_Conversion_Ratio * ADC_Coefficient);
 		ADC_CHANNEL.ADC_Voltage[ADC_CHANNEL.CHANNEL] = Cur_Value[ADC_CHANNEL.CHANNEL];
@@ -119,10 +96,10 @@ extern "C"
 		// 延时0.5s后再处理数据，防止数据漏处理
 		ADC_Delay(500);
 
-		Update_Channel0_ADC();
-		Update_Channel1_ADC();
-		Update_Channel2_ADC();
-		Update_Channel3_ADC();
+		Update_Channelx_ADC(CHANNEL0);
+		Update_Channelx_ADC(CHANNEL1);
+		Update_Channelx_ADC(CHANNEL2);
+		Update_Channelx_ADC(CHANNEL3);
 
 		end_select_adc();
 	}
