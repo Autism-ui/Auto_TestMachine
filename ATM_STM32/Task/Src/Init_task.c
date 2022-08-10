@@ -21,7 +21,7 @@ extern "C"
 #include "bsp_adcdetect.h"
 #include "adc_collect.h"
 #include "bsp_usart.h"
-
+#include "watchdog.h"
 #include "UsartInteract_Task.h" // 串口交互任务
 
     /*--- Public variable definitions -----------------------------------------------------*/
@@ -44,14 +44,20 @@ extern "C"
     /*--- Private function definitions ----------------------------------------------------*/
     void Init_taskFunction(void *argument)
     {
+        TickType_t xLastWakeTime;
+        xLastWakeTime = xTaskGetTickCount();
+
         Device_Init();
         ADC_Detect();
-
-        osDelay(1000);
-
+        osDelay(500);
+        FeedIndependentWDOG();
         UsartInteract_TaskCreate(osPriorityNormal); // 串口交互任务
-
-        vTaskDelete(NULL);
+        for (;;)
+        {
+            FeedIndependentWDOG();
+            vTaskDelayUntil(&xLastWakeTime, 500 / portTICK_RATE_MS);
+        }
+        // vTaskDelete(NULL);
     }
     /*--- Public function definitions -----------------------------------------------------*/
 

@@ -6,6 +6,8 @@
         "bsp_adcdetect.h": "c",
         "adc_collect.h": "c",
         "init_task.h": "c",
-        "usartinteract_task.h": "c"
+        "usartinteract_task.h": "c",
+        "watchdog.h": "c",
+        "iwdg.h": "c"
     }
 }

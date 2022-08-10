@@ -28,6 +28,7 @@ auto_testmachine\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc_e
 auto_testmachine\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h
 auto_testmachine\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h
 auto_testmachine\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h
+auto_testmachine\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_iwdg.h
 auto_testmachine\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h
 auto_testmachine\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h
 auto_testmachine\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
@@ -46,5 +47,7 @@ auto_testmachine\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list
 auto_testmachine\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
 auto_testmachine\main.o: ../Inc/adc.h
 auto_testmachine\main.o: ../Inc/dma.h
+auto_testmachine\main.o: ../Inc/iwdg.h
 auto_testmachine\main.o: ../Inc/usart.h
 auto_testmachine\main.o: ../Inc/gpio.h
+auto_testmachine\main.o: ..\Apps\Inc\watchdog.h

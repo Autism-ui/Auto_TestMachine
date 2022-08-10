@@ -17,11 +17,11 @@ extern "C"
 
 /*--- Private dependencies ------------------------------------------------------------*/
 #include "bsp_adcdetect.h"
-
+#include "watchdog.h"
 	/*--- Public variable definitions -----------------------------------------------------*/
 
 /*--- Private macros ------------------------------------------------------------------*/
-#define Avg_Num 10
+#define Avg_Num 20
 #define ADC_Conversion_Ratio 4096.0f
 #define ADC_Coefficient 3.3f
 #define ADC_Delay(a) HAL_Delay(a)
@@ -56,6 +56,7 @@ extern "C"
 	};
 	uint16_t ADC_Select[ADC_CHANNEL_NUM] = {0};
 	float Cur_Value[ADC_CHANNEL_NUM];
+	int h = 0;
 	/*--- Private function declarations ---------------------------------------------------*/
 	static uint32_t Select_ADC(CHANNEL_STU CHANNEL)
 	{
@@ -63,10 +64,13 @@ extern "C"
 		for (int i = 0; i < Avg_Num; i++)
 		{
 			sum += ADC_Select[CHANNEL];
+			if (CHANNEL == CHANNEL0)
+			{
+				h++;
+			}
 		}
 		return (sum / Avg_Num);
 	}
-
 	/*--- Private function definitions ----------------------------------------------------*/
 	static void Update_Channelx_ADC(CHANNEL_STU CHANNEL)
 	{
@@ -74,6 +78,7 @@ extern "C"
 		uint32_t avg = Select_ADC(ADC_CHANNEL.CHANNEL);
 		Cur_Value[ADC_CHANNEL.CHANNEL] = ((float)avg / ADC_Conversion_Ratio * ADC_Coefficient);
 		ADC_CHANNEL.ADC_Voltage[ADC_CHANNEL.CHANNEL] = Cur_Value[ADC_CHANNEL.CHANNEL];
+		FeedIndependentWDOG();
 	}
 
 	static void start_select_adc()
@@ -94,7 +99,7 @@ extern "C"
 	{
 		start_select_adc();
 		// 延时0.5s后再处理数据，防止数据漏处理
-		ADC_Delay(500);
+		ADC_Delay(100);
 
 		Update_Channelx_ADC(CHANNEL0);
 		Update_Channelx_ADC(CHANNEL1);

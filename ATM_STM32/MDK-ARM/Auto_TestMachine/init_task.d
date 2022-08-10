@@ -42,6 +42,7 @@ auto_testmachine\init_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_
 auto_testmachine\init_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h
 auto_testmachine\init_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h
 auto_testmachine\init_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h
+auto_testmachine\init_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_iwdg.h
 auto_testmachine\init_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h
 auto_testmachine\init_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h
 auto_testmachine\init_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
@@ -51,4 +52,5 @@ auto_testmachine\init_task.o: ..\Apps\Inc\adc_collect.h
 auto_testmachine\init_task.o: ..\BSP\Inc\bsp_usart.h
 auto_testmachine\init_task.o: ../Inc/usart.h
 auto_testmachine\init_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
+auto_testmachine\init_task.o: ..\Apps\Inc\watchdog.h
 auto_testmachine\init_task.o: ..\Task\Inc\UsartInteract_Task.h
