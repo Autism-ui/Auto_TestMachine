@@ -638,6 +638,16 @@
               <FileType>1</FileType>
               <FilePath>..\Apps\Src\watchdog.c</FilePath>
             </File>
+            <File>
+              <FileName>main_fsm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Apps\Src\main_fsm.c</FilePath>
+            </File>
+            <File>
+              <FileName>systime.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Apps\Src\systime.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

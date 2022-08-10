@@ -10,42 +10,44 @@
 /* file 'LICENSE.txt', which is part of this source code package.*/
 /*****************************************************************/
 
-#ifndef __UNIT_TEST_EXPERIMENT_H__
-#define __UNIT_TEST_EXPERIMENT_H__
+#ifndef __MAIN_FSM_H__
+#define __MAIN_FSM_H__
 
 #ifdef __cplusplus
 extern "C"
 {
 #endif
 
-/*--- Public dependencies -------------------------------------------------------------*/
-#include "adc.h"
+    /*--- Public dependencies -------------------------------------------------------------*/
+#include <stdbool.h>
     /*--- Public macros -------------------------------------------------------------------*/
-#define ADC_CHANNEL_NUM 4
+
     /*--- Public type definitions ---------------------------------------------------------*/
-    /* 暂定4通道，后期更改enum内的定义 */
-    typedef enum
+    typedef enum main_sta
     {
-        CHANNEL0 = 0, // PC0
-        CHANNEL1,     // PC1
-        CHANNEL2,     // PC2
-        CHANNEL3,     // PC3
-    } CHANNEL_STU;
+        MAIN_STA_INIT,
+        MAIN_STA_CHECKSELF,
+        MAIN_STA_READY,
+        MAIN_STA_RUNNING,
+        MAIN_STA_STOP,
+    } main_sta_t;
+
+    typedef enum main_sta_fatal
+    {
+        MAIN_STA_FATALERROR_NONE,
+    } main_sta_fatal_t;
     /*--- Public variable declarations ----------------------------------------------------*/
 
     /*--- Public function declarations ----------------------------------------------------*/
+    void mainfsm(void);
 
-    /* CHANNEL0:PC0
-     * CHANNEL1:PC1
-     * CHANNEL2:PC2
-     * CHANNEL3:PC3
-     */
-    void bsp_ADC_Update(void);
+    void mainfsm_switch(main_sta_t);
 
-    float Get_WhichChannel_Voltage(CHANNEL_STU CHANNEL);
+    main_sta_t mainfsm_get_sta(void);
 
+    main_sta_fatal_t mainfsm_get_fatal_sta(void);
 #ifdef __cplusplus
 }
 #endif
 
-#endif // __UNIT_TEST_EXPERIMENT_H__
+#endif // __MAIN_FSM_H__

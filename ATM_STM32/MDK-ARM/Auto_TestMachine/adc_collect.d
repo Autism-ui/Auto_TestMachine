@@ -37,3 +37,4 @@ auto_testmachine\adc_collect.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ha
 auto_testmachine\adc_collect.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 auto_testmachine\adc_collect.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 auto_testmachine\adc_collect.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
+auto_testmachine\adc_collect.o: E:\Keil530\ARM\ARMCC\Bin\..\include\string.h

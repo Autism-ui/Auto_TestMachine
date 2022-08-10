@@ -8,6 +8,9 @@
         "init_task.h": "c",
         "usartinteract_task.h": "c",
         "watchdog.h": "c",
-        "iwdg.h": "c"
+        "iwdg.h": "c",
+        "main_fsm.h": "c",
+        "systime.h": "c",
+        "stm32f4xx_hal.h": "c"
     }
 }

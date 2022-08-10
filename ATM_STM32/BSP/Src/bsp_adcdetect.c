@@ -18,6 +18,7 @@ extern "C"
 /*--- Private dependencies ------------------------------------------------------------*/
 #include "bsp_adcdetect.h"
 #include "watchdog.h"
+#include "string.h"
 	/*--- Public variable definitions -----------------------------------------------------*/
 
 /*--- Private macros ------------------------------------------------------------------*/
@@ -56,7 +57,6 @@ extern "C"
 	};
 	uint16_t ADC_Select[ADC_CHANNEL_NUM] = {0};
 	float Cur_Value[ADC_CHANNEL_NUM];
-	int h = 0;
 	/*--- Private function declarations ---------------------------------------------------*/
 	static uint32_t Select_ADC(CHANNEL_STU CHANNEL)
 	{
@@ -64,10 +64,6 @@ extern "C"
 		for (int i = 0; i < Avg_Num; i++)
 		{
 			sum += ADC_Select[CHANNEL];
-			if (CHANNEL == CHANNEL0)
-			{
-				h++;
-			}
 		}
 		return (sum / Avg_Num);
 	}
@@ -109,24 +105,18 @@ extern "C"
 		end_select_adc();
 	}
 
-	float Get_CHANNEL0_ADC()
+	float Get_WhichChannel_Voltage(CHANNEL_STU CHANNEL)
 	{
-		return ADC_CHANNEL.ADC_Voltage[CHANNEL0];
+		return ADC_CHANNEL.ADC_Voltage[CHANNEL];
 	}
 
-	float Get_CHANNEL1_ADC()
+	void bsp_ADC_Reset(void)
 	{
-		return ADC_CHANNEL.ADC_Voltage[CHANNEL1];
-	}
-
-	float Get_CHANNEL2_ADC()
-	{
-		return ADC_CHANNEL.ADC_Voltage[CHANNEL2];
-	}
-
-	float Get_CHANNEL3_ADC()
-	{
-		return ADC_CHANNEL.ADC_Voltage[CHANNEL3];
+		memset(ADC_Select, 0, ADC_CHANNEL_NUM);
+		memset(Cur_Value, 0.0, ADC_CHANNEL_NUM);
+		memset(ADC_CHANNEL.ADC_Voltage, 0.0f, ADC_CHANNEL_NUM);
+		ADC_CHANNEL.CHANNEL = CHANNEL0;
+		ADC_CHANNEL.ADC_DMA_Statu = ADC_DMA_INIT;
 	}
 
 #ifdef __cplusplus
