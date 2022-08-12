@@ -38,3 +38,4 @@ auto_testmachine\bsp_adcdetect.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_
 auto_testmachine\bsp_adcdetect.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 auto_testmachine\bsp_adcdetect.o: ..\Apps\watchdog.h
 auto_testmachine\bsp_adcdetect.o: E:\Keil530\ARM\ARMCC\Bin\..\include\string.h
+auto_testmachine\bsp_adcdetect.o: ..\Apps\systime.h

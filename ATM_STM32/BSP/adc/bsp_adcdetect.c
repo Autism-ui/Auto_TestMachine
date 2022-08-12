@@ -18,6 +18,7 @@ extern "C" {
 #include "bsp_adcdetect.h"
 #include "watchdog.h"
 #include "string.h"
+#include "systime.h"
 /*--- Public variable definitions -----------------------------------------------------*/
 
 /*--- Private macros ------------------------------------------------------------------*/
@@ -54,10 +55,14 @@ ADC_CHANNEL_t ADC_CHANNEL = {
 };
 uint16_t ADC_Select[ADC_CHANNEL_NUM] = { 0 };
 float	 Cur_Value[ADC_CHANNEL_NUM];
+int		 flag = 0;
 /*--- Private function declarations ---------------------------------------------------*/
 static uint32_t Select_ADC(CHANNEL_STU CHANNEL) {
 	uint32_t sum = 0;
 	for(int i = 0; i < Avg_Num; i++) {
+		uint32_t last_time = Get_systime_ms();
+		while(Get_systime_ms() - last_time <= Avg_Num) {
+		};
 		sum += ADC_Select[CHANNEL];
 	}
 	return (sum / Avg_Num);
