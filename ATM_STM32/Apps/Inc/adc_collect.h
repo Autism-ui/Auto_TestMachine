@@ -14,13 +14,12 @@
 #define __ADC_COLLECT_H__
 
 #ifdef __cplusplus
-extern "C"
-{
+extern "C" {
 #endif
 
-    /*--- Public dependencies -------------------------------------------------------------*/
+/*--- Public dependencies -------------------------------------------------------------*/
 
-    /*--- Public macros -------------------------------------------------------------------*/
+/*--- Public macros -------------------------------------------------------------------*/
 /*CH0-PC0*/
 #define CHANNEL0_MIN 0.0f
 #define CHANNEL0_MAX 3.3f
@@ -33,15 +32,15 @@ extern "C"
 /*CH3-PC3*/
 #define CHANNEL3_MIN 0.0f
 #define CHANNEL3_MAX 3.3f
-    /*--- Public type definitions ---------------------------------------------------------*/
+/*--- Public type definitions ---------------------------------------------------------*/
 
-    /*--- Public variable declarations ----------------------------------------------------*/
+/*--- Public variable declarations ----------------------------------------------------*/
 
-    /*--- Public function declarations ----------------------------------------------------*/
-    void ADC_Detect(void);
+/*--- Public function declarations ----------------------------------------------------*/
+void ADC_Detect(void);
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif // __ADC_COLLECT_H__
+#endif	// __ADC_COLLECT_H__

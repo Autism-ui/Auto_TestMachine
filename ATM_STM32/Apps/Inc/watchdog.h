@@ -14,23 +14,22 @@
 #define __WATCHDOG_H__
 
 #ifdef __cplusplus
-extern "C"
-{
+extern "C" {
 #endif
 
-    /*--- Public dependencies -------------------------------------------------------------*/
+/*--- Public dependencies -------------------------------------------------------------*/
 
-    /*--- Public macros -------------------------------------------------------------------*/
+/*--- Public macros -------------------------------------------------------------------*/
 
-    /*--- Public type definitions ---------------------------------------------------------*/
+/*--- Public type definitions ---------------------------------------------------------*/
 
-    /*--- Public variable declarations ----------------------------------------------------*/
+/*--- Public variable declarations ----------------------------------------------------*/
 
-    /*--- Public function declarations ----------------------------------------------------*/
-    void FeedIndependentWDOG(void);
+/*--- Public function declarations ----------------------------------------------------*/
+void FeedIndependentWDOG(void);
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif // __WATCHDOG_H__
+#endif	// __WATCHDOG_H__

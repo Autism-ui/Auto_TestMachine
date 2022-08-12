@@ -13,16 +13,16 @@
 #ifndef __SYSTIME_H__
 #define __SYSTIME_H__
 
+#include "stdint.h"
 #ifdef __cplusplus
-extern "C"
-{
+extern "C" {
 #endif
 
-    uint32_t Get_systime_ms(void);
-    uint32_t Get_systime_us(void);
+uint32_t Get_systime_ms(void);
+uint32_t Get_systime_us(void);
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif // __SYSTIME_H__
+#endif	// __SYSTIME_H__

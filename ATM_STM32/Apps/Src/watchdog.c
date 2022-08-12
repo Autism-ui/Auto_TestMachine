@@ -13,17 +13,15 @@
 #include "watchdog.h"
 
 #ifdef __cplusplus
-extern "C"
-{
+extern "C" {
 #endif
 
 #include "iwdg.h"
 
-    /******IWDG******/
-    void FeedIndependentWDOG(void)
-    {
-        BSP_IWDG_Refresh();
-    }
+/******IWDG******/
+void FeedIndependentWDOG(void) {
+	BSP_IWDG_Refresh();
+}
 
 #ifdef __cplusplus
 }

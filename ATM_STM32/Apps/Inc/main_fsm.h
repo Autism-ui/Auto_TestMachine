@@ -14,40 +14,37 @@
 #define __MAIN_FSM_H__
 
 #ifdef __cplusplus
-extern "C"
-{
+extern "C" {
 #endif
 
-    /*--- Public dependencies -------------------------------------------------------------*/
+/*--- Public dependencies -------------------------------------------------------------*/
 #include <stdbool.h>
-    /*--- Public macros -------------------------------------------------------------------*/
+/*--- Public macros -------------------------------------------------------------------*/
 
-    /*--- Public type definitions ---------------------------------------------------------*/
-    typedef enum main_sta
-    {
-        MAIN_STA_INIT,
-        MAIN_STA_CHECKSELF,
-        MAIN_STA_READY,
-        MAIN_STA_RUNNING,
-        MAIN_STA_STOP,
-    } main_sta_t;
+/*--- Public type definitions ---------------------------------------------------------*/
+typedef enum main_sta {
+	MAIN_STA_INIT,
+	MAIN_STA_CHECKSELF,
+	MAIN_STA_READY,
+	MAIN_STA_RUNNING,
+	MAIN_STA_STOP,
+} main_sta_t;
 
-    typedef enum main_sta_fatal
-    {
-        MAIN_STA_FATALERROR_NONE,
-    } main_sta_fatal_t;
-    /*--- Public variable declarations ----------------------------------------------------*/
+typedef enum main_sta_fatal {
+	MAIN_STA_FATALERROR_NONE,
+} main_sta_fatal_t;
+/*--- Public variable declarations ----------------------------------------------------*/
 
-    /*--- Public function declarations ----------------------------------------------------*/
-    void mainfsm(void);
+/*--- Public function declarations ----------------------------------------------------*/
+void mainfsm(void);
 
-    void mainfsm_switch(main_sta_t);
+void mainfsm_switch(main_sta_t);
 
-    main_sta_t mainfsm_get_sta(void);
+main_sta_t mainfsm_get_sta(void);
 
-    main_sta_fatal_t mainfsm_get_fatal_sta(void);
+main_sta_fatal_t mainfsm_get_fatal_sta(void);
 #ifdef __cplusplus
 }
 #endif
 
-#endif // __MAIN_FSM_H__
+#endif	// __MAIN_FSM_H__

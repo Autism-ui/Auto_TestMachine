@@ -14,26 +14,25 @@
 #define __USARTINTERACT_TASK_H__
 
 #ifdef __cplusplus
-extern "C"
-{
+extern "C" {
 #endif
 
-    /*--- Public dependencies -------------------------------------------------------------*/
+/*--- Public dependencies -------------------------------------------------------------*/
 #include "FreeRTOS.h"
 #include "usart.h"
 #include "queue.h"
 #include "cmsis_os.h"
-    /*--- Public macros -------------------------------------------------------------------*/
+/*--- Public macros -------------------------------------------------------------------*/
 
-    /*--- Public type definitions ---------------------------------------------------------*/
+/*--- Public type definitions ---------------------------------------------------------*/
 
-    /*--- Public variable declarations ----------------------------------------------------*/
+/*--- Public variable declarations ----------------------------------------------------*/
 
-    /*--- Public function declarations ----------------------------------------------------*/
-    void UsartInteract_TaskCreate(osPriority_t _priority);
+/*--- Public function declarations ----------------------------------------------------*/
+void UsartInteract_TaskCreate(osPriority_t _priority);
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif // __USARTINTERACT_TASK_H__
+#endif	// __USARTINTERACT_TASK_H__

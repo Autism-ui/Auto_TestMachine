@@ -13,28 +13,27 @@
 #include "main_fsm.h"
 
 #ifdef __cplusplus
-extern "C"
-{
+extern "C" {
 #endif
 
-    /*--- Private dependencies ------------------------------------------------------------*/
+/*--- Private dependencies ------------------------------------------------------------*/
 #include "bsp_usart.h"
 #include "bsp_adcdetect.h"
 #include "adc_collect.h"
 #include "watchdog.h"
-    /*--- Public variable definitions -----------------------------------------------------*/
+/*--- Public variable definitions -----------------------------------------------------*/
 
-    /*--- Private macros ------------------------------------------------------------------*/
+/*--- Private macros ------------------------------------------------------------------*/
 
-    /*--- Private type definitions --------------------------------------------------------*/
+/*--- Private type definitions --------------------------------------------------------*/
 
-    /*--- Private variable definitions ----------------------------------------------------*/
+/*--- Private variable definitions ----------------------------------------------------*/
 
-    /*--- Private function declarations ---------------------------------------------------*/
+/*--- Private function declarations ---------------------------------------------------*/
 
-    /*--- Private function definitions ----------------------------------------------------*/
+/*--- Private function definitions ----------------------------------------------------*/
 
-    /*--- Public function definitions -----------------------------------------------------*/
+/*--- Public function definitions -----------------------------------------------------*/
 
 #ifdef __cplusplus
 }

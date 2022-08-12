@@ -14,38 +14,36 @@
 #define __UNIT_TEST_EXPERIMENT_H__
 
 #ifdef __cplusplus
-extern "C"
-{
+extern "C" {
 #endif
 
 /*--- Public dependencies -------------------------------------------------------------*/
 #include "adc.h"
-    /*--- Public macros -------------------------------------------------------------------*/
+/*--- Public macros -------------------------------------------------------------------*/
 #define ADC_CHANNEL_NUM 4
-    /*--- Public type definitions ---------------------------------------------------------*/
-    /* 暂定4通道，后期更改enum内的定义 */
-    typedef enum
-    {
-        CHANNEL0 = 0, // PC0
-        CHANNEL1,     // PC1
-        CHANNEL2,     // PC2
-        CHANNEL3,     // PC3
-    } CHANNEL_STU;
-    /*--- Public variable declarations ----------------------------------------------------*/
+/*--- Public type definitions ---------------------------------------------------------*/
+/* 暂定4通道，后期更改enum内的定义 */
+typedef enum {
+	CHANNEL0 = 0,  // PC0
+	CHANNEL1,	   // PC1
+	CHANNEL2,	   // PC2
+	CHANNEL3,	   // PC3
+} CHANNEL_STU;
+/*--- Public variable declarations ----------------------------------------------------*/
 
-    /*--- Public function declarations ----------------------------------------------------*/
+/*--- Public function declarations ----------------------------------------------------*/
 
-    /* CHANNEL0:PC0
-     * CHANNEL1:PC1
-     * CHANNEL2:PC2
-     * CHANNEL3:PC3
-     */
-    void bsp_ADC_Update(void);
+/* CHANNEL0:PC0
+ * CHANNEL1:PC1
+ * CHANNEL2:PC2
+ * CHANNEL3:PC3
+ */
+void bsp_ADC_Update(void);
 
-    float Get_WhichChannel_Voltage(CHANNEL_STU CHANNEL);
+float Get_WhichChannel_Voltage(CHANNEL_STU CHANNEL);
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif // __UNIT_TEST_EXPERIMENT_H__
+#endif	// __UNIT_TEST_EXPERIMENT_H__

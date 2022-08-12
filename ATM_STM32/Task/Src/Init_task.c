@@ -13,53 +13,49 @@
 #include "Init_task.h"
 
 #ifdef __cplusplus
-extern "C"
-{
+extern "C" {
 #endif
 
-    /*--- Private dependencies ------------------------------------------------------------*/
+/*--- Private dependencies ------------------------------------------------------------*/
 #include "bsp_adcdetect.h"
 #include "adc_collect.h"
 #include "bsp_usart.h"
 #include "watchdog.h"
-#include "UsartInteract_Task.h" // 串口交互任务
+#include "UsartInteract_Task.h"	 // 串口交互任务
 
-    /*--- Public variable definitions -----------------------------------------------------*/
+/*--- Public variable definitions -----------------------------------------------------*/
 
-    /*--- Private macros ------------------------------------------------------------------*/
+/*--- Private macros ------------------------------------------------------------------*/
 
-    /*--- Private type definitions --------------------------------------------------------*/
+/*--- Private type definitions --------------------------------------------------------*/
 
-    /*--- Private variable definitions ----------------------------------------------------*/
+/*--- Private variable definitions ----------------------------------------------------*/
 
-    /*--- Private function declarations ---------------------------------------------------*/
-    static void Device_Init()
-    {
-        USART3_DMA_Init();
-        bsp_ADC_Update();
+/*--- Private function declarations ---------------------------------------------------*/
+static void Device_Init() {
+	USART3_DMA_Init();
+	bsp_ADC_Update();
 #ifdef DOUBLE_BUFFER
-        Enable_Uart3();
+	Enable_Uart3();
 #endif
-    }
-    /*--- Private function definitions ----------------------------------------------------*/
-    void Init_taskFunction(void *argument)
-    {
-        TickType_t xLastWakeTime;
-        xLastWakeTime = xTaskGetTickCount();
+}
+/*--- Private function definitions ----------------------------------------------------*/
+void Init_taskFunction(void *argument) {
+	TickType_t xLastWakeTime;
+	xLastWakeTime = xTaskGetTickCount();
 
-        Device_Init();
-        ADC_Detect();
-        osDelay(500);
-        FeedIndependentWDOG();
-        UsartInteract_TaskCreate(osPriorityNormal); // 串口交互任务
-        for (;;)
-        {
-            FeedIndependentWDOG();
-            vTaskDelayUntil(&xLastWakeTime, 500 / portTICK_RATE_MS);
-        }
-        // vTaskDelete(NULL);
-    }
-    /*--- Public function definitions -----------------------------------------------------*/
+	Device_Init();
+	ADC_Detect();
+	osDelay(500);
+	FeedIndependentWDOG();
+	UsartInteract_TaskCreate(osPriorityNormal);	 // 串口交互任务
+	for(;;) {
+		FeedIndependentWDOG();
+		vTaskDelayUntil(&xLastWakeTime, 500 / portTICK_RATE_MS);
+	}
+	// vTaskDelete(NULL);
+}
+/*--- Public function definitions -----------------------------------------------------*/
 
 #ifdef __cplusplus
 }

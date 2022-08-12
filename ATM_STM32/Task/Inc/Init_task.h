@@ -14,24 +14,23 @@
 #define __INIT_TASK_H__
 
 #ifdef __cplusplus
-extern "C"
-{
+extern "C" {
 #endif
 
-    /*--- Public dependencies -------------------------------------------------------------*/
+/*--- Public dependencies -------------------------------------------------------------*/
 #include "FreeRTOS.h"
 #include "task.h"
 #include "cmsis_os.h"
-    /*--- Public macros -------------------------------------------------------------------*/
+/*--- Public macros -------------------------------------------------------------------*/
 
-    /*--- Public type definitions ---------------------------------------------------------*/
+/*--- Public type definitions ---------------------------------------------------------*/
 
-    /*--- Public variable declarations ----------------------------------------------------*/
+/*--- Public variable declarations ----------------------------------------------------*/
 
-    /*--- Public function declarations ----------------------------------------------------*/
+/*--- Public function declarations ----------------------------------------------------*/
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif // __INIT_TASK_H__
+#endif	// __INIT_TASK_H__

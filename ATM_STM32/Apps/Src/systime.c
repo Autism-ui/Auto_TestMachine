@@ -13,23 +13,20 @@
 #include "systime.h"
 
 #ifdef __cplusplus
-extern "C"
-{
+extern "C" {
 #endif
 
 #include "stm32f4xx_hal.h"
 
 #define GetTick_ms() HAL_GetTick()
 
-    uint32_t Get_systime_ms(void)
-    {
-        return GetTick_ms();
-    }
+uint32_t Get_systime_ms(void) {
+	return GetTick_ms();
+}
 
-    uint32_t Get_systime_us(void)
-    {
-        return 1000 * GetTick_ms() + TIM3->CNT;
-    }
+uint32_t Get_systime_us(void) {
+	return 1000 * GetTick_ms() + TIM3->CNT;
+}
 #ifdef __cplusplus
 }
 #endif
