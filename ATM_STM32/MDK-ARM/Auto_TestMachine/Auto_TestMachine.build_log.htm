@@ -27,11 +27,18 @@ Project File Date:  08/12/2022
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'E:\Keil530\ARM\ARMCC\Bin'
 Build target 'Auto_TestMachine'
-compiling bsp_adcdetect.c...
+compiling main_fsm.c...
+..\Apps\main_fsm.c(30): warning:  #177-D: variable "sta_previous"  was declared but never referenced
+  static main_sta_t		sta_now		 = MAIN_STA_INIT, sta_next, sta_previous;
+..\Apps\main_fsm.c(42): warning:  #177-D: function "fsm_enter"  was declared but never referenced
+  static void fsm_enter(main_sta_t sta) {
+..\Apps\main_fsm.c(52): warning:  #177-D: function "fsm_running"  was declared but never referenced
+  static void fsm_running(main_sta_t sta) {
+..\Apps\main_fsm.c: 3 warnings, 0 errors
 linking...
 Program Size: Code=14888 RO-data=504 RW-data=160 ZI-data=20168  
 FromELF: creating hex file...
-"Auto_TestMachine\Auto_TestMachine.axf" - 0 Error(s), 0 Warning(s).
+"Auto_TestMachine\Auto_TestMachine.axf" - 0 Error(s), 3 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -54,7 +61,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.4.0
-Build Time Elapsed:  00:00:07
+Build Time Elapsed:  00:00:08
 </pre>
 </body>
 </html>

@@ -20,11 +20,11 @@ extern "C" {
 
 #define GetTick_ms() HAL_GetTick()
 
-uint32_t Get_systime_ms(void) {
+time_ms_t Get_systime_ms(void) {
 	return GetTick_ms();
 }
 
-uint32_t Get_systime_us(void) {
+time_us_t Get_systime_us(void) {
 	return 1000 * GetTick_ms() + TIM3->CNT;
 }
 #ifdef __cplusplus

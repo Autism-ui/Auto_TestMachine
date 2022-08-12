@@ -626,9 +626,6 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>Modules</GroupName>
-        </Group>
-        <Group>
           <GroupName>Apps</GroupName>
           <Files>
             <File>

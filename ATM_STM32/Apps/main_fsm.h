@@ -26,8 +26,8 @@ typedef enum main_sta {
 	MAIN_STA_INIT,
 	MAIN_STA_CHECKSELF,
 	MAIN_STA_READY,
-	MAIN_STA_RUNNING,
-	MAIN_STA_STOP,
+	MAIN_STA_ADC_RUNNING,
+	MAIN_STA_ADC_STOP,
 } main_sta_t;
 
 typedef enum main_sta_fatal {
@@ -38,11 +38,14 @@ typedef enum main_sta_fatal {
 /*--- Public function declarations ----------------------------------------------------*/
 void mainfsm(void);
 
-void mainfsm_switch(main_sta_t);
+void mainfsm_switch(main_sta_t sta);
 
 main_sta_t mainfsm_get_sta(void);
 
 main_sta_fatal_t mainfsm_get_fatal_sta(void);
+
+bool mainfsm_is_in(main_sta_t sta);
+
 #ifdef __cplusplus
 }
 #endif

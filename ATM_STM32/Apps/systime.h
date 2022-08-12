@@ -14,12 +14,14 @@
 #define __SYSTIME_H__
 
 #include "stdint.h"
+typedef uint32_t time_ms_t;
+typedef uint32_t time_us_t;
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-uint32_t Get_systime_ms(void);
-uint32_t Get_systime_us(void);
+time_ms_t Get_systime_ms(void);
+time_us_t Get_systime_us(void);
 
 #ifdef __cplusplus
 }

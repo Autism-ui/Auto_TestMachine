@@ -21,19 +21,97 @@ extern "C" {
 #include "bsp_adcdetect.h"
 #include "adc_collect.h"
 #include "watchdog.h"
+#include "systime.h"
 /*--- Public variable definitions -----------------------------------------------------*/
 
 /*--- Private macros ------------------------------------------------------------------*/
 
 /*--- Private type definitions --------------------------------------------------------*/
-
+static main_sta_t		sta_now		 = MAIN_STA_INIT, sta_next, sta_previous;
+static main_sta_fatal_t fatal_detail = MAIN_STA_FATALERROR_NONE;
+static enum {
+	ENTER,
+	RUNNING,
+	EXIT,
+} fsm_ctrl = ENTER;
 /*--- Private variable definitions ----------------------------------------------------*/
-
+static uint32_t time_ms_enter;
 /*--- Private function declarations ---------------------------------------------------*/
 
 /*--- Private function definitions ----------------------------------------------------*/
+static void fsm_enter(main_sta_t sta) {
+	switch(sta) {
+	case MAIN_STA_INIT: break;
+	case MAIN_STA_CHECKSELF: break;
+	case MAIN_STA_READY: break;
+	case MAIN_STA_ADC_RUNNING: break;
+	case MAIN_STA_ADC_STOP: break;
+	}
+}
 
+static void fsm_running(main_sta_t sta) {
+	time_ms_t time = Get_systime_ms();
+	switch(sta) {
+	case MAIN_STA_INIT: break;
+	case MAIN_STA_CHECKSELF: break;
+	case MAIN_STA_READY: break;
+	case MAIN_STA_ADC_RUNNING: break;
+	case MAIN_STA_ADC_STOP: break;
+	}
+}
+
+static void fsm_exit(main_sta_t sta) {
+	switch(sta) {
+	case MAIN_STA_INIT: break;
+	case MAIN_STA_CHECKSELF: break;
+	case MAIN_STA_READY: break;
+	case MAIN_STA_ADC_RUNNING: break;
+	case MAIN_STA_ADC_STOP: break;
+	}
+}
 /*--- Public function definitions -----------------------------------------------------*/
+void mainfsm(void) {
+	switch(fsm_ctrl) {
+	case ENTER:
+		time_ms_enter = Get_systime_ms();
+		sta_now		  = sta_next;
+		fsm_enter(sta_next);
+		fsm_ctrl = RUNNING;
+		break;
+	case RUNNING:
+		fsm_running(sta_now);
+		if(sta_next == sta_now) {
+			break;
+		}
+		sta_previous = sta_now;
+		fsm_ctrl	 = EXIT;
+		break;
+	case EXIT:
+		fsm_exit(sta_previous);
+		fsm_ctrl = ENTER;
+		break;
+	}
+}
+
+void mainfsm_switch(main_sta_t sta) {
+	sta_next = sta;
+	fsm_ctrl = ENTER;
+}
+
+bool mainfsm_is_in(main_sta_t sta) {
+	if(sta == sta_now || sta == sta_next) {
+		return true;
+	}
+	return false;
+}
+
+main_sta_t mainfsm_get_sta(void) {
+	return sta_now;
+}
+
+main_sta_fatal_t mainfsm_get_fatal_sta(void) {
+	return fatal_detail;
+}
 
 #ifdef __cplusplus
 }
