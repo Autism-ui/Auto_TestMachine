@@ -783,7 +783,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\BSP\Src\bsp_adcdetect.c</PathWithFileName>
+      <PathWithFileName>..\BSP\adc\bsp_adcdetect.c</PathWithFileName>
       <FilenameWithoutPath>bsp_adcdetect.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -795,7 +795,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\BSP\Src\bsp_usart.c</PathWithFileName>
+      <PathWithFileName>..\BSP\Serial\bsp_usart.c</PathWithFileName>
       <FilenameWithoutPath>bsp_usart.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -815,7 +815,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Apps\Src\adc_collect.c</PathWithFileName>
+      <PathWithFileName>..\Apps\adc_collect.c</PathWithFileName>
       <FilenameWithoutPath>adc_collect.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -827,8 +827,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Apps\Src\watchdog.c</PathWithFileName>
-      <FilenameWithoutPath>watchdog.c</FilenameWithoutPath>
+      <PathWithFileName>..\Apps\main_fsm.c</PathWithFileName>
+      <FilenameWithoutPath>main_fsm.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -839,8 +839,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Apps\Src\main_fsm.c</PathWithFileName>
-      <FilenameWithoutPath>main_fsm.c</FilenameWithoutPath>
+      <PathWithFileName>..\Apps\systime.c</PathWithFileName>
+      <FilenameWithoutPath>systime.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -851,8 +851,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Apps\Src\systime.c</PathWithFileName>
-      <FilenameWithoutPath>systime.c</FilenameWithoutPath>
+      <PathWithFileName>..\Apps\watchdog.c</PathWithFileName>
+      <FilenameWithoutPath>watchdog.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -871,7 +871,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Task\Src\Init_task.c</PathWithFileName>
+      <PathWithFileName>..\Task\Init_task.c</PathWithFileName>
       <FilenameWithoutPath>Init_task.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -883,7 +883,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Task\Src\UsartInteract_Task.c</PathWithFileName>
+      <PathWithFileName>..\Task\UsartInteract_Task.c</PathWithFileName>
       <FilenameWithoutPath>UsartInteract_Task.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>

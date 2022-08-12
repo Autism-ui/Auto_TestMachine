@@ -35,7 +35,7 @@ auto_testmachine\usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_
 auto_testmachine\usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 auto_testmachine\usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 auto_testmachine\usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
-auto_testmachine\usart.o: ..\BSP\Inc\bsp_usart.h
+auto_testmachine\usart.o: ..\BSP\Serial\bsp_usart.h
 auto_testmachine\usart.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 auto_testmachine\usart.o: ../Inc/FreeRTOSConfig.h
 auto_testmachine\usart.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h

@@ -1,5 +1,5 @@
-auto_testmachine\watchdog.o: ..\Apps\Src\watchdog.c
-auto_testmachine\watchdog.o: ..\Apps\Inc\watchdog.h
+auto_testmachine\watchdog.o: ..\Apps\watchdog.c
+auto_testmachine\watchdog.o: ..\Apps\watchdog.h
 auto_testmachine\watchdog.o: ../Inc/iwdg.h
 auto_testmachine\watchdog.o: ../Inc/main.h
 auto_testmachine\watchdog.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h

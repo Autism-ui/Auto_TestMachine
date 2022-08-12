@@ -1,5 +1,5 @@
-auto_testmachine\usartinteract_task.o: ..\Task\Src\UsartInteract_Task.c
-auto_testmachine\usartinteract_task.o: ..\Task\Inc\UsartInteract_Task.h
+auto_testmachine\usartinteract_task.o: ..\Task\UsartInteract_Task.c
+auto_testmachine\usartinteract_task.o: ..\Task\UsartInteract_Task.h
 auto_testmachine\usartinteract_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 auto_testmachine\usartinteract_task.o: E:\Keil530\ARM\ARMCC\Bin\..\include\stddef.h
 auto_testmachine\usartinteract_task.o: E:\Keil530\ARM\ARMCC\Bin\..\include\stdint.h
@@ -48,4 +48,4 @@ auto_testmachine\usartinteract_task.o: ../Middlewares/Third_Party/FreeRTOS/Sourc
 auto_testmachine\usartinteract_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
 auto_testmachine\usartinteract_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h
 auto_testmachine\usartinteract_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
-auto_testmachine\usartinteract_task.o: ..\BSP\Inc\bsp_usart.h
+auto_testmachine\usartinteract_task.o: ..\BSP\Serial\bsp_usart.h

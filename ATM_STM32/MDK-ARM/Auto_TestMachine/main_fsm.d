@@ -1,7 +1,7 @@
-auto_testmachine\main_fsm.o: ..\Apps\Src\main_fsm.c
-auto_testmachine\main_fsm.o: ..\Apps\Inc\main_fsm.h
+auto_testmachine\main_fsm.o: ..\Apps\main_fsm.c
+auto_testmachine\main_fsm.o: ..\Apps\main_fsm.h
 auto_testmachine\main_fsm.o: E:\Keil530\ARM\ARMCC\Bin\..\include\stdbool.h
-auto_testmachine\main_fsm.o: ..\BSP\Inc\bsp_usart.h
+auto_testmachine\main_fsm.o: ..\BSP\Serial\bsp_usart.h
 auto_testmachine\main_fsm.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 auto_testmachine\main_fsm.o: E:\Keil530\ARM\ARMCC\Bin\..\include\stddef.h
 auto_testmachine\main_fsm.o: E:\Keil530\ARM\ARMCC\Bin\..\include\stdint.h
@@ -48,7 +48,7 @@ auto_testmachine\main_fsm.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_u
 auto_testmachine\main_fsm.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
 auto_testmachine\main_fsm.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
 auto_testmachine\main_fsm.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
-auto_testmachine\main_fsm.o: ..\BSP\Inc\bsp_adcdetect.h
+auto_testmachine\main_fsm.o: ..\BSP\adc\bsp_adcdetect.h
 auto_testmachine\main_fsm.o: ../Inc/adc.h
-auto_testmachine\main_fsm.o: ..\Apps\Inc\adc_collect.h
-auto_testmachine\main_fsm.o: ..\Apps\Inc\watchdog.h
+auto_testmachine\main_fsm.o: ..\Apps\adc_collect.h
+auto_testmachine\main_fsm.o: ..\Apps\watchdog.h

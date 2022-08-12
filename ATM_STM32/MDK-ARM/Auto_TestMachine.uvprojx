@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F407xx</Define>
               <Undefine></Undefine>
-              <IncludePath>../Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;..\BSP\Inc;..\Task\Inc;..\Apps\Inc</IncludePath>
+              <IncludePath>../Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;..\Apps;..\Task;..\BSP\adc;..\BSP\Serial</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -616,12 +616,12 @@
             <File>
               <FileName>bsp_adcdetect.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\BSP\Src\bsp_adcdetect.c</FilePath>
+              <FilePath>..\BSP\adc\bsp_adcdetect.c</FilePath>
             </File>
             <File>
               <FileName>bsp_usart.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\BSP\Src\bsp_usart.c</FilePath>
+              <FilePath>..\BSP\Serial\bsp_usart.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -631,22 +631,22 @@
             <File>
               <FileName>adc_collect.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Apps\Src\adc_collect.c</FilePath>
-            </File>
-            <File>
-              <FileName>watchdog.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Apps\Src\watchdog.c</FilePath>
+              <FilePath>..\Apps\adc_collect.c</FilePath>
             </File>
             <File>
               <FileName>main_fsm.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Apps\Src\main_fsm.c</FilePath>
+              <FilePath>..\Apps\main_fsm.c</FilePath>
             </File>
             <File>
               <FileName>systime.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Apps\Src\systime.c</FilePath>
+              <FilePath>..\Apps\systime.c</FilePath>
+            </File>
+            <File>
+              <FileName>watchdog.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Apps\watchdog.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -656,12 +656,12 @@
             <File>
               <FileName>Init_task.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Task\Src\Init_task.c</FilePath>
+              <FilePath>..\Task\Init_task.c</FilePath>
             </File>
             <File>
               <FileName>UsartInteract_Task.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Task\Src\UsartInteract_Task.c</FilePath>
+              <FilePath>..\Task\UsartInteract_Task.c</FilePath>
             </File>
           </Files>
         </Group>

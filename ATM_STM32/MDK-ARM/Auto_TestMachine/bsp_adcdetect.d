@@ -1,5 +1,5 @@
-auto_testmachine\bsp_adcdetect.o: ..\BSP\Src\bsp_adcdetect.c
-auto_testmachine\bsp_adcdetect.o: ..\BSP\Inc\bsp_adcdetect.h
+auto_testmachine\bsp_adcdetect.o: ..\BSP\adc\bsp_adcdetect.c
+auto_testmachine\bsp_adcdetect.o: ..\BSP\adc\bsp_adcdetect.h
 auto_testmachine\bsp_adcdetect.o: ../Inc/adc.h
 auto_testmachine\bsp_adcdetect.o: ../Inc/main.h
 auto_testmachine\bsp_adcdetect.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
@@ -36,5 +36,5 @@ auto_testmachine\bsp_adcdetect.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_
 auto_testmachine\bsp_adcdetect.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 auto_testmachine\bsp_adcdetect.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 auto_testmachine\bsp_adcdetect.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
-auto_testmachine\bsp_adcdetect.o: ..\Apps\Inc\watchdog.h
+auto_testmachine\bsp_adcdetect.o: ..\Apps\watchdog.h
 auto_testmachine\bsp_adcdetect.o: E:\Keil530\ARM\ARMCC\Bin\..\include\string.h

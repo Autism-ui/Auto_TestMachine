@@ -1,5 +1,5 @@
-auto_testmachine\systime.o: ..\Apps\Src\systime.c
-auto_testmachine\systime.o: ..\Apps\Inc\systime.h
+auto_testmachine\systime.o: ..\Apps\systime.c
+auto_testmachine\systime.o: ..\Apps\systime.h
 auto_testmachine\systime.o: E:\Keil530\ARM\ARMCC\Bin\..\include\stdint.h
 auto_testmachine\systime.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
 auto_testmachine\systime.o: ../Inc/stm32f4xx_hal_conf.h

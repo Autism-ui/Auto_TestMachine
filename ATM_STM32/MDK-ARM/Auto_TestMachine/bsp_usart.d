@@ -1,5 +1,5 @@
-auto_testmachine\bsp_usart.o: ..\BSP\Src\bsp_usart.c
-auto_testmachine\bsp_usart.o: ..\BSP\Inc\bsp_usart.h
+auto_testmachine\bsp_usart.o: ..\BSP\Serial\bsp_usart.c
+auto_testmachine\bsp_usart.o: ..\BSP\Serial\bsp_usart.h
 auto_testmachine\bsp_usart.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 auto_testmachine\bsp_usart.o: E:\Keil530\ARM\ARMCC\Bin\..\include\stddef.h
 auto_testmachine\bsp_usart.o: E:\Keil530\ARM\ARMCC\Bin\..\include\stdint.h

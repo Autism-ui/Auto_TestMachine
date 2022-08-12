@@ -1,6 +1,6 @@
-auto_testmachine\adc_collect.o: ..\Apps\Src\adc_collect.c
-auto_testmachine\adc_collect.o: ..\Apps\Inc\adc_collect.h
-auto_testmachine\adc_collect.o: ..\BSP\Inc\bsp_adcdetect.h
+auto_testmachine\adc_collect.o: ..\Apps\adc_collect.c
+auto_testmachine\adc_collect.o: ..\Apps\adc_collect.h
+auto_testmachine\adc_collect.o: ..\BSP\adc\bsp_adcdetect.h
 auto_testmachine\adc_collect.o: ../Inc/adc.h
 auto_testmachine\adc_collect.o: ../Inc/main.h
 auto_testmachine\adc_collect.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h

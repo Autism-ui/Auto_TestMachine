@@ -50,4 +50,4 @@ auto_testmachine\main.o: ../Inc/dma.h
 auto_testmachine\main.o: ../Inc/iwdg.h
 auto_testmachine\main.o: ../Inc/usart.h
 auto_testmachine\main.o: ../Inc/gpio.h
-auto_testmachine\main.o: ..\Apps\Inc\watchdog.h
+auto_testmachine\main.o: ..\Apps\watchdog.h

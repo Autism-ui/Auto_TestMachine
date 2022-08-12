@@ -44,6 +44,6 @@ auto_testmachine\stm32f4xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/port
 auto_testmachine\stm32f4xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
 auto_testmachine\stm32f4xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
 auto_testmachine\stm32f4xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
-auto_testmachine\stm32f4xx_it.o: ..\BSP\Inc\bsp_usart.h
+auto_testmachine\stm32f4xx_it.o: ..\BSP\Serial\bsp_usart.h
 auto_testmachine\stm32f4xx_it.o: ../Inc/usart.h
 auto_testmachine\stm32f4xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
