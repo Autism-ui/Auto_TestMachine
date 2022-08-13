@@ -40,6 +40,8 @@ typedef enum {
  */
 void bsp_ADC_Update(void);
 
+void bsp_ADC_Reset(void);
+
 float Get_WhichChannel_Voltage(CHANNEL_STU CHANNEL);
 
 #ifdef __cplusplus

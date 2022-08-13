@@ -28,17 +28,13 @@ Project File Date:  08/12/2022
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'E:\Keil530\ARM\ARMCC\Bin'
 Build target 'Auto_TestMachine'
 compiling main_fsm.c...
-..\Apps\main_fsm.c(30): warning:  #177-D: variable "sta_previous"  was declared but never referenced
-  static main_sta_t		sta_now		 = MAIN_STA_INIT, sta_next, sta_previous;
-..\Apps\main_fsm.c(42): warning:  #177-D: function "fsm_enter"  was declared but never referenced
-  static void fsm_enter(main_sta_t sta) {
-..\Apps\main_fsm.c(52): warning:  #177-D: function "fsm_running"  was declared but never referenced
-  static void fsm_running(main_sta_t sta) {
-..\Apps\main_fsm.c: 3 warnings, 0 errors
+..\Apps\main_fsm.c(38): warning:  #550-D: variable "time_ms_enter"  was set but never used
+  static uint32_t time_ms_enter;
+..\Apps\main_fsm.c: 1 warning, 0 errors
 linking...
-Program Size: Code=14888 RO-data=504 RW-data=160 ZI-data=20168  
+Program Size: Code=14864 RO-data=504 RW-data=160 ZI-data=20168  
 FromELF: creating hex file...
-"Auto_TestMachine\Auto_TestMachine.axf" - 0 Error(s), 3 Warning(s).
+"Auto_TestMachine\Auto_TestMachine.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -61,7 +57,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.4.0
-Build Time Elapsed:  00:00:08
+Build Time Elapsed:  00:00:07
 </pre>
 </body>
 </html>

@@ -25,7 +25,7 @@ extern "C" {
 #define Avg_Num				 20
 #define ADC_Conversion_Ratio 4096.0f
 #define ADC_Coefficient		 3.3f
-#define ADC_Delay(a)		 HAL_Delay(a)
+#define ADC_Delay(a)		 while (Get_systime_ms() - entertime <= a){}
 /*--- Private type definitions --------------------------------------------------------*/
 // #define ADC_INIT          \
 // 	{                     \
@@ -89,8 +89,10 @@ static void end_select_adc() {
 /*--- Public function definitions -----------------------------------------------------*/
 
 void bsp_ADC_Update(void) {
+	time_ms_t entertime = Get_systime_ms();
 	start_select_adc();
-	// 延时0.5s后再处理数据，防止数据漏处理
+
+	// 延时0.1s后再处理数据，防止数据漏处理
 	ADC_Delay(100);
 
 	Update_Channelx_ADC(CHANNEL0);

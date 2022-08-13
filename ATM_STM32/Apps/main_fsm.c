@@ -27,7 +27,7 @@ extern "C" {
 /*--- Private macros ------------------------------------------------------------------*/
 
 /*--- Private type definitions --------------------------------------------------------*/
-static main_sta_t		sta_now		 = MAIN_STA_INIT, sta_next, sta_previous;
+static main_sta_t		sta_now		 = MAIN_STA_STARTUP, sta_next, sta_previous;
 static main_sta_fatal_t fatal_detail = MAIN_STA_FATALERROR_NONE;
 static enum {
 	ENTER,
@@ -41,7 +41,7 @@ static uint32_t time_ms_enter;
 /*--- Private function definitions ----------------------------------------------------*/
 static void fsm_enter(main_sta_t sta) {
 	switch(sta) {
-	case MAIN_STA_INIT: break;
+	case MAIN_STA_STARTUP: break;
 	case MAIN_STA_CHECKSELF: break;
 	case MAIN_STA_READY: break;
 	case MAIN_STA_ADC_RUNNING: break;
@@ -50,19 +50,32 @@ static void fsm_enter(main_sta_t sta) {
 }
 
 static void fsm_running(main_sta_t sta) {
-	time_ms_t time = Get_systime_ms();
 	switch(sta) {
-	case MAIN_STA_INIT: break;
-	case MAIN_STA_CHECKSELF: break;
-	case MAIN_STA_READY: break;
-	case MAIN_STA_ADC_RUNNING: break;
-	case MAIN_STA_ADC_STOP: break;
+	case MAIN_STA_STARTUP: mainfsm_switch(MAIN_STA_CHECKSELF); break;
+	case MAIN_STA_CHECKSELF: mainfsm_switch(MAIN_STA_READY); break;
+	case MAIN_STA_READY:
+		ADC_Reset();
+		mainfsm_switch(MAIN_STA_ADC_RUNNING);
+		break;
+	case MAIN_STA_ADC_RUNNING:
+		bsp_ADC_Update();
+		ADC_Detect();
+		if(FAIL == ADC_CHANNEL_Result()) {
+			mainfsm_switch(MAIN_STA_ADC_STOP);
+		} else {
+		}
+		break;
+	case MAIN_STA_ADC_STOP:
+		if(0) {	 // button
+			mainfsm_switch(MAIN_STA_READY);
+		}
+		break;
 	}
 }
 
 static void fsm_exit(main_sta_t sta) {
 	switch(sta) {
-	case MAIN_STA_INIT: break;
+	case MAIN_STA_STARTUP: break;
 	case MAIN_STA_CHECKSELF: break;
 	case MAIN_STA_READY: break;
 	case MAIN_STA_ADC_RUNNING: break;

@@ -23,7 +23,7 @@ extern "C" {
 
 /*--- Public type definitions ---------------------------------------------------------*/
 typedef enum main_sta {
-	MAIN_STA_INIT,
+	MAIN_STA_STARTUP,
 	MAIN_STA_CHECKSELF,
 	MAIN_STA_READY,
 	MAIN_STA_ADC_RUNNING,

@@ -17,9 +17,6 @@
 extern "C" {
 #endif
 
-/*--- Public dependencies -------------------------------------------------------------*/
-
-/*--- Public macros -------------------------------------------------------------------*/
 /*CH0-PC0*/
 #define CHANNEL0_MIN 0.0f
 #define CHANNEL0_MAX 3.3f
@@ -32,12 +29,23 @@ extern "C" {
 /*CH3-PC3*/
 #define CHANNEL3_MIN 0.0f
 #define CHANNEL3_MAX 3.3f
-/*--- Public type definitions ---------------------------------------------------------*/
 
-/*--- Public variable declarations ----------------------------------------------------*/
+typedef enum {
+	FAIL,
+	PASS,
+	NONE,
+} ADC_DETECT_STU;
+typedef struct {
+	ADC_DETECT_STU ADC_DETECT[ADC_CHANNEL_NUM];
+} ADC_COLLECT_t;
 
-/*--- Public function declarations ----------------------------------------------------*/
+extern ADC_COLLECT_t ADC_COLLECT;
+
 void ADC_Detect(void);
+
+void ADC_Reset(void);
+
+bool ADC_CHANNEL_Result(void);
 
 #ifdef __cplusplus
 }
