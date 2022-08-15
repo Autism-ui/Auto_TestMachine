@@ -28,7 +28,7 @@ extern "C" {
 /*--- Private type definitions --------------------------------------------------------*/
 
 /*--- Private variable definitions ----------------------------------------------------*/
-BUTTON_T		 Button_Msg[Hard_Button_Num] = { 0 };
+BUTTON_T	  Button_Msg[Hard_Button_Num] = { 0 };
 BUTTON_FIFO_T Button_FIFO;
 
 /*--- Private function declarations ---------------------------------------------------*/
@@ -141,7 +141,7 @@ void Button_FIFO_Put(uint8_t _ButtonCode) {
  * @param[in]  无
  * @retval     按键代码
  */
-uint8_t Button_FIFO_Put_Get(void) {
+uint8_t Button_FIFO_Get(void) {
 	uint8_t ret;
 	if(Button_FIFO.Read == Button_FIFO.Write) {
 		return BUTTON_NONE;
@@ -184,7 +184,6 @@ void Button_SetParam(uint8_t _ucButtonID, uint16_t _LongTime, uint8_t _RepeatSpe
 void Button_FIFO_Clear(void) {
 	Button_FIFO.Read = Button_FIFO.Write;
 }
-
 /**
  * @brief      扫描所有按键,非阻塞,被状态机任务周期性调用,10ms一次
  * @param[in]  无
@@ -195,6 +194,17 @@ void Button_Scan(void) {
 		Button_Detect(i);
 	}
 }
+
+void Button_Switch(void) {
+	uint8_t whitch_btn = Button_FIFO_Get();
+	switch(whitch_btn) {
+	case Button_Down_B1:HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin); break;
+	case Button_Up_B1:break;
+	case Button_Long_B1:break;
+	default: break;
+	}
+}
+
 #ifdef __cplusplus
 }
 #endif

@@ -19,6 +19,7 @@ extern "C" {
 /*--- Private dependencies ------------------------------------------------------------*/
 #include "main_fsm.h"
 #include "button.h"
+#include "watchdog.h"
 /*--- Public variable definitions -----------------------------------------------------*/
 
 /*--- Private macros ------------------------------------------------------------------*/
@@ -35,9 +36,14 @@ static TaskHandle_t MainTaskHandle;
 void Main_Task(void *param) {
 	TickType_t xLastWakeTime;
 	xLastWakeTime = xTaskGetTickCount();
-
+	int count	  = 0;
 	for(;;) {
-		FeedIndependentWDOG();
+		count++;
+		if(count >= 40) {
+			FeedIndependentWDOG();
+			count = 0;
+		}
+		Button_Switch();
 		vTaskDelayUntil(&xLastWakeTime, 10 / portTICK_RATE_MS);
 	}
 }

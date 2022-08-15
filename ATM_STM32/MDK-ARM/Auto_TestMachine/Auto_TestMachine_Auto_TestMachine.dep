@@ -242,7 +242,7 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h)(0x62E879
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h)(0x62E8792B)
 I (../Inc/adc.h)(0x62F9FBC8)
 I (../Inc/usart.h)(0x62F9FBCB)
-I (..\Apps\button.h)(0x62F9B973)
+I (..\Apps\button.h)(0x62FA0D2A)
 F (../Src/iwdg.c)(0x62F9FBCB)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\Apps -I ..\Task -I ..\BSP\adc -I ..\BSP\Serial-I.\RTE\_Auto_TestMachine-IE:\Keil530\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IE:\Keil530\Packs\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx-o auto_testmachine\iwdg.o --omf_browse auto_testmachine\iwdg.crf --depend auto_testmachine\iwdg.d)
 I (../Inc/iwdg.h)(0x62F9FBCB)
 I (../Inc/main.h)(0x62FA0003)
@@ -1586,8 +1586,8 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h)(0x62E8792B
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/task.h)(0x62E8792B)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/list.h)(0x62E8792B)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h)(0x62E8792B)
-F (..\Apps\button.c)(0x62F9ECEC)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\Apps -I ..\Task -I ..\BSP\adc -I ..\BSP\Serial-I.\RTE\_Auto_TestMachine-IE:\Keil530\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IE:\Keil530\Packs\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx-o auto_testmachine\button.o --omf_browse auto_testmachine\button.crf --depend auto_testmachine\button.d)
-I (..\Apps\button.h)(0x62F9B973)
+F (..\Apps\button.c)(0x62FA0FE9)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\Apps -I ..\Task -I ..\BSP\adc -I ..\BSP\Serial-I.\RTE\_Auto_TestMachine-IE:\Keil530\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IE:\Keil530\Packs\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx-o auto_testmachine\button.o --omf_browse auto_testmachine\button.crf --depend auto_testmachine\button.d)
+I (..\Apps\button.h)(0x62FA0D2A)
 I (E:\Keil530\ARM\ARMCC\include\stdint.h)(0x5E53505C)
 I (E:\Keil530\ARM\ARMCC\include\string.h)(0x5E53505C)
 I (E:\Keil530\ARM\ARMCC\include\stdio.h)(0x5E53505C)
@@ -1639,7 +1639,7 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/list.h)(0x62E8792B)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h)(0x62E8792B)
 F (..\Apps\detect_timer.c)(0x62FA0822)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\Apps -I ..\Task -I ..\BSP\adc -I ..\BSP\Serial-I.\RTE\_Auto_TestMachine-IE:\Keil530\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IE:\Keil530\Packs\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx-o auto_testmachine\detect_timer.o --omf_browse auto_testmachine\detect_timer.crf --depend auto_testmachine\detect_timer.d)
 I (..\Apps\detect_timer.h)(0x62FA05F1)
-I (..\Apps\button.h)(0x62F9B973)
+I (..\Apps\button.h)(0x62FA0D2A)
 I (E:\Keil530\ARM\ARMCC\include\stdint.h)(0x5E53505C)
 I (../Inc/main.h)(0x62FA0003)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x62E87968)
@@ -1685,7 +1685,7 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h)(0x62E8792B
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/task.h)(0x62E8792B)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/list.h)(0x62E8792B)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h)(0x62E8792B)
-F (..\Task\Init_task.c)(0x62FA0966)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\Apps -I ..\Task -I ..\BSP\adc -I ..\BSP\Serial-I.\RTE\_Auto_TestMachine-IE:\Keil530\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IE:\Keil530\Packs\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx-o auto_testmachine\init_task.o --omf_browse auto_testmachine\init_task.crf --depend auto_testmachine\init_task.d)
+F (..\Task\Init_task.c)(0x62FA09FF)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\Apps -I ..\Task -I ..\BSP\adc -I ..\BSP\Serial-I.\RTE\_Auto_TestMachine-IE:\Keil530\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IE:\Keil530\Packs\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx-o auto_testmachine\init_task.o --omf_browse auto_testmachine\init_task.crf --depend auto_testmachine\init_task.d)
 I (..\Task\Init_task.h)(0x62FA0335)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x62E8792B)
 I (E:\Keil530\ARM\ARMCC\include\stddef.h)(0x5E53505C)
@@ -1744,7 +1744,7 @@ I (..\Apps\main_fsm.h)(0x62F6FD99)
 I (..\Apps\detect_timer.h)(0x62FA05F1)
 I (..\Task\Main_Task.h)(0x62FA07CA)
 I (..\Task\UsartInteract_Task.h)(0x62F5CCB4)
-I (..\Apps\button.h)(0x62F9B973)
+I (..\Apps\button.h)(0x62FA0D2A)
 F (..\Task\UsartInteract_Task.c)(0x62F5CD54)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\Apps -I ..\Task -I ..\BSP\adc -I ..\BSP\Serial-I.\RTE\_Auto_TestMachine-IE:\Keil530\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IE:\Keil530\Packs\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx-o auto_testmachine\usartinteract_task.o --omf_browse auto_testmachine\usartinteract_task.crf --depend auto_testmachine\usartinteract_task.d)
 I (..\Task\UsartInteract_Task.h)(0x62F5CCB4)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x62E8792B)
@@ -1795,7 +1795,7 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/list.h)(0x62E8792B)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h)(0x62E8792B)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h)(0x62E8792B)
 I (..\BSP\Serial\bsp_usart.h)(0x62F5CC90)
-F (..\Task\Main_Task.c)(0x62FA093E)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\Apps -I ..\Task -I ..\BSP\adc -I ..\BSP\Serial-I.\RTE\_Auto_TestMachine-IE:\Keil530\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IE:\Keil530\Packs\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx-o auto_testmachine\main_task.o --omf_browse auto_testmachine\main_task.crf --depend auto_testmachine\main_task.d)
+F (..\Task\Main_Task.c)(0x62FA0FAB)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\Apps -I ..\Task -I ..\BSP\adc -I ..\BSP\Serial-I.\RTE\_Auto_TestMachine-IE:\Keil530\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IE:\Keil530\Packs\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx-o auto_testmachine\main_task.o --omf_browse auto_testmachine\main_task.crf --depend auto_testmachine\main_task.d)
 I (..\Task\Main_Task.h)(0x62FA07CA)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x62E8792B)
 I (E:\Keil530\ARM\ARMCC\include\stddef.h)(0x5E53505C)
@@ -1812,4 +1812,5 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/list.h)(0x62E8792B)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h)(0x62E8792B)
 I (..\Apps\main_fsm.h)(0x62F6FD99)
 I (E:\Keil530\ARM\ARMCC\include\stdbool.h)(0x5E53505C)
-I (..\Apps\button.h)(0x62F9B973)
+I (..\Apps\button.h)(0x62FA0D2A)
+I (..\Apps\watchdog.h)(0x62F5CC9B)

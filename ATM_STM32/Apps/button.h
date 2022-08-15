@@ -85,9 +85,9 @@ void Button_FIFO_Put(uint8_t _ButtonCode);
 
 void Button_SetParam(uint8_t _ucButtonID, uint16_t _LongTime, uint8_t _RepeatSpeed);
 
-uint8_t Button_FIFO_Put_Get(void);
+uint8_t Button_FIFO_Get(void);
 uint8_t Button_GetState(BUTTON_ID_T _ucButtonID);
-
+void	Button_Switch(void);
 #ifdef __cplusplus
 }
 #endif
