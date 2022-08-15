@@ -11,6 +11,11 @@
         "iwdg.h": "c",
         "main_fsm.h": "c",
         "systime.h": "c",
-        "stm32f4xx_hal.h": "c"
+        "stm32f4xx_hal.h": "c",
+        "bsp_button.h": "c",
+        "gpio.h": "c",
+        "button.h": "c",
+        "string.h": "c",
+        "cstdint": "c"
     }
 }

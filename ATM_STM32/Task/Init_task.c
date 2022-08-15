@@ -21,12 +21,13 @@ extern "C" {
 #include "adc_collect.h"
 #include "bsp_usart.h"
 #include "watchdog.h"
+#include "main_fsm.h"
 #include "UsartInteract_Task.h"	 // 串口交互任务
 
 /*--- Public variable definitions -----------------------------------------------------*/
-
+// main_sta_t sta = MAIN_STA_STARTUP;
 /*--- Private macros ------------------------------------------------------------------*/
-
+#include "button.h"
 /*--- Private type definitions --------------------------------------------------------*/
 
 /*--- Private variable definitions ----------------------------------------------------*/
@@ -50,6 +51,7 @@ void Init_taskFunction(void *argument) {
 	FeedIndependentWDOG();
 	UsartInteract_TaskCreate(osPriorityNormal);	 // 串口交互任务
 	for(;;) {
+		// sta = mainfsm_get_sta();
 		FeedIndependentWDOG();
 		vTaskDelayUntil(&xLastWakeTime, 500 / portTICK_RATE_MS);
 	}

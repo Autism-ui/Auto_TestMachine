@@ -27,15 +27,16 @@ extern "C" {
 /*--- Private macros ------------------------------------------------------------------*/
 
 /*--- Private type definitions --------------------------------------------------------*/
-static main_sta_t		sta_now		 = MAIN_STA_STARTUP, sta_next, sta_previous;
-static main_sta_fatal_t fatal_detail = MAIN_STA_FATALERROR_NONE;
+static main_sta_t		sta_now				= MAIN_STA_STARTUP, sta_next, sta_previous;
+static main_sta_fatal_t fatal_detail		= MAIN_STA_FATALERROR_NONE;
+static int				ADC_Module_Complete = 0;
 static enum {
 	ENTER,
 	RUNNING,
 	EXIT,
 } fsm_ctrl = ENTER;
 /*--- Private variable definitions ----------------------------------------------------*/
-static uint32_t time_ms_enter;
+// static uint32_t time_ms_enter;
 /*--- Private function declarations ---------------------------------------------------*/
 
 /*--- Private function definitions ----------------------------------------------------*/
@@ -58,8 +59,11 @@ static void fsm_running(main_sta_t sta) {
 		mainfsm_switch(MAIN_STA_ADC_RUNNING);
 		break;
 	case MAIN_STA_ADC_RUNNING:
-		bsp_ADC_Update();
-		ADC_Detect();
+		if(!ADC_Module_Complete) {
+			bsp_ADC_Update();
+			ADC_Detect();
+			ADC_Module_Complete = 1;
+		}
 		if(FAIL == ADC_CHANNEL_Result()) {
 			mainfsm_switch(MAIN_STA_ADC_STOP);
 		} else {
@@ -86,8 +90,8 @@ static void fsm_exit(main_sta_t sta) {
 void mainfsm(void) {
 	switch(fsm_ctrl) {
 	case ENTER:
-		time_ms_enter = Get_systime_ms();
-		sta_now		  = sta_next;
+		// time_ms_enter = Get_systime_ms();
+		sta_now = sta_next;
 		fsm_enter(sta_next);
 		fsm_ctrl = RUNNING;
 		break;

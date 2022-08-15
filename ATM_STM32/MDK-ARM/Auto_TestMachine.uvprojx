@@ -648,6 +648,11 @@
               <FileType>1</FileType>
               <FilePath>..\Apps\watchdog.c</FilePath>
             </File>
+            <File>
+              <FileName>button.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Apps\button.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

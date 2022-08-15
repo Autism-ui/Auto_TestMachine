@@ -17,7 +17,6 @@ extern "C" {
 #endif
 
 /*--- Private dependencies ------------------------------------------------------------*/
-#include "bsp_adcdetect.h"
 #include "string.h"
 #include "stdbool.h"
 /*--- Public variable definitions -----------------------------------------------------*/
@@ -66,6 +65,7 @@ bool ADC_CHANNEL_Result(void) {
 		if(result == FAIL)
 			return result;
 	}
+	return true;
 }
 
 #ifdef __cplusplus

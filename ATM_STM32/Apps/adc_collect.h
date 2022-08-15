@@ -13,6 +13,8 @@
 #ifndef __ADC_COLLECT_H__
 #define __ADC_COLLECT_H__
 
+#include "stdbool.h"
+#include "bsp_adcdetect.h"
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -35,6 +37,7 @@ typedef enum {
 	PASS,
 	NONE,
 } ADC_DETECT_STU;
+
 typedef struct {
 	ADC_DETECT_STU ADC_DETECT[ADC_CHANNEL_NUM];
 } ADC_COLLECT_t;

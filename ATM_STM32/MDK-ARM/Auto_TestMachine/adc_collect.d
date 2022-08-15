@@ -1,5 +1,6 @@
 auto_testmachine\adc_collect.o: ..\Apps\adc_collect.c
 auto_testmachine\adc_collect.o: ..\Apps\adc_collect.h
+auto_testmachine\adc_collect.o: E:\Keil530\ARM\ARMCC\Bin\..\include\stdbool.h
 auto_testmachine\adc_collect.o: ..\BSP\adc\bsp_adcdetect.h
 auto_testmachine\adc_collect.o: ../Inc/adc.h
 auto_testmachine\adc_collect.o: ../Inc/main.h
