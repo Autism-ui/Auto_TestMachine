@@ -22,8 +22,9 @@ extern "C" {
 #include "bsp_usart.h"
 #include "watchdog.h"
 #include "main_fsm.h"
+#include "detect_timer.h"
+#include "Main_Task.h"			 //主任务
 #include "UsartInteract_Task.h"	 // 串口交互任务
-
 /*--- Public variable definitions -----------------------------------------------------*/
 // main_sta_t sta = MAIN_STA_STARTUP;
 /*--- Private macros ------------------------------------------------------------------*/
@@ -35,27 +36,26 @@ extern "C" {
 /*--- Private function declarations ---------------------------------------------------*/
 static void Device_Init() {
 	USART3_DMA_Init();
+	Button_Init();
+	Detect_Timer_Init();
 	bsp_ADC_Update();
+
 #ifdef DOUBLE_BUFFER
 	Enable_Uart3();
 #endif
 }
 /*--- Private function definitions ----------------------------------------------------*/
 void Init_taskFunction(void *argument) {
-	TickType_t xLastWakeTime;
-	xLastWakeTime = xTaskGetTickCount();
-
 	Device_Init();
 	ADC_Detect();
 	osDelay(500);
+
 	FeedIndependentWDOG();
+
+	Main_TaskCreate(osPriorityNormal);			 //主任务
 	UsartInteract_TaskCreate(osPriorityNormal);	 // 串口交互任务
-	for(;;) {
-		// sta = mainfsm_get_sta();
-		FeedIndependentWDOG();
-		vTaskDelayUntil(&xLastWakeTime, 500 / portTICK_RATE_MS);
-	}
-	// vTaskDelete(NULL);
+
+	vTaskDelete(NULL);
 }
 /*--- Public function definitions -----------------------------------------------------*/
 

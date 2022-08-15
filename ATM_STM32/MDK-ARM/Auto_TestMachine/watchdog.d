@@ -36,3 +36,14 @@ auto_testmachine\watchdog.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_p
 auto_testmachine\watchdog.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 auto_testmachine\watchdog.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 auto_testmachine\watchdog.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
+auto_testmachine\watchdog.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h
+auto_testmachine\watchdog.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+auto_testmachine\watchdog.o: ../Inc/FreeRTOSConfig.h
+auto_testmachine\watchdog.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+auto_testmachine\watchdog.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+auto_testmachine\watchdog.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+auto_testmachine\watchdog.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/portmacro.h
+auto_testmachine\watchdog.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+auto_testmachine\watchdog.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+auto_testmachine\watchdog.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
+auto_testmachine\watchdog.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h

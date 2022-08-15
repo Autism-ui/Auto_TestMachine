@@ -11,10 +11,6 @@ auto_testmachine\init_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/portabl
 auto_testmachine\init_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
 auto_testmachine\init_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
 auto_testmachine\init_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
-auto_testmachine\init_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h
-auto_testmachine\init_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
-auto_testmachine\init_task.o: ..\BSP\adc\bsp_adcdetect.h
-auto_testmachine\init_task.o: ../Inc/adc.h
 auto_testmachine\init_task.o: ../Inc/main.h
 auto_testmachine\init_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
 auto_testmachine\init_task.o: ../Inc/stm32f4xx_hal_conf.h
@@ -48,6 +44,10 @@ auto_testmachine\init_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_
 auto_testmachine\init_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 auto_testmachine\init_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 auto_testmachine\init_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
+auto_testmachine\init_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h
+auto_testmachine\init_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
+auto_testmachine\init_task.o: ..\BSP\adc\bsp_adcdetect.h
+auto_testmachine\init_task.o: ../Inc/adc.h
 auto_testmachine\init_task.o: ..\Apps\adc_collect.h
 auto_testmachine\init_task.o: E:\Keil530\ARM\ARMCC\Bin\..\include\stdbool.h
 auto_testmachine\init_task.o: ..\BSP\Serial\bsp_usart.h
@@ -55,5 +55,7 @@ auto_testmachine\init_task.o: ../Inc/usart.h
 auto_testmachine\init_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
 auto_testmachine\init_task.o: ..\Apps\watchdog.h
 auto_testmachine\init_task.o: ..\Apps\main_fsm.h
+auto_testmachine\init_task.o: ..\Apps\detect_timer.h
+auto_testmachine\init_task.o: ..\Task\Main_Task.h
 auto_testmachine\init_task.o: ..\Task\UsartInteract_Task.h
 auto_testmachine\init_task.o: ..\Apps\button.h

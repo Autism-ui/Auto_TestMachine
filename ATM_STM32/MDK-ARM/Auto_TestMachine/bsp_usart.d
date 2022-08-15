@@ -43,8 +43,10 @@ auto_testmachine\bsp_usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_
 auto_testmachine\bsp_usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 auto_testmachine\bsp_usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 auto_testmachine\bsp_usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
-auto_testmachine\bsp_usart.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
+auto_testmachine\bsp_usart.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h
 auto_testmachine\bsp_usart.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
 auto_testmachine\bsp_usart.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
+auto_testmachine\bsp_usart.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
+auto_testmachine\bsp_usart.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
 auto_testmachine\bsp_usart.o: E:\Keil530\ARM\ARMCC\Bin\..\include\stdlib.h
 auto_testmachine\bsp_usart.o: E:\Keil530\ARM\ARMCC\Bin\..\include\string.h

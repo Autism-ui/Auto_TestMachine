@@ -28,6 +28,7 @@
 /* USER CODE BEGIN Includes */     
 #include "adc.h"
 #include "usart.h"
+#include "button.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -37,7 +38,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define ADC_MAX_NUM 4
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -56,6 +57,11 @@ const osThreadAttr_t Init_Task_attributes = {
   .priority = (osPriority_t) osPriorityNormal,
   .stack_size = 512 * 4
 };
+/* Definitions for Detect_Timer */
+osTimerId_t Detect_TimerHandle;
+const osTimerAttr_t Detect_Timer_attributes = {
+  .name = "Detect_Timer"
+};
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -63,6 +69,7 @@ const osThreadAttr_t Init_Task_attributes = {
 /* USER CODE END FunctionPrototypes */
 
 void Init_taskFunction(void *argument);
+void Detect_Timer_Callback(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -83,6 +90,10 @@ void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN RTOS_SEMAPHORES */
   /* add semaphores, ... */
   /* USER CODE END RTOS_SEMAPHORES */
+
+  /* Create the timer(s) */
+  /* creation of Detect_Timer */
+  Detect_TimerHandle = osTimerNew(Detect_Timer_Callback, osTimerPeriodic, NULL, &Detect_Timer_attributes);
 
   /* USER CODE BEGIN RTOS_TIMERS */
   /* start timers, add new ones, ... */
@@ -122,6 +133,14 @@ __weak void Init_taskFunction(void *argument)
   }
   //	vTaskDelete(NULL);
   /* USER CODE END Init_taskFunction */
+}
+
+/* Detect_Timer_Callback function */
+__weak void Detect_Timer_Callback(void *argument)
+{
+  /* USER CODE BEGIN Detect_Timer_Callback */
+	
+  /* USER CODE END Detect_Timer_Callback */
 }
 
 /* Private application code --------------------------------------------------*/

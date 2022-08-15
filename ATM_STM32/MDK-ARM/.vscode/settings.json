@@ -16,6 +16,9 @@
         "gpio.h": "c",
         "button.h": "c",
         "string.h": "c",
-        "cstdint": "c"
+        "cstdint": "c",
+        "main_task.h": "c",
+        "freertos.h": "c",
+        "main.h": "c"
     }
 }

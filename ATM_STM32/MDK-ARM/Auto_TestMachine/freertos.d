@@ -47,3 +47,4 @@ auto_testmachine\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RT
 auto_testmachine\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
 auto_testmachine\freertos.o: ../Inc/adc.h
 auto_testmachine\freertos.o: ../Inc/usart.h
+auto_testmachine\freertos.o: ..\Apps\button.h

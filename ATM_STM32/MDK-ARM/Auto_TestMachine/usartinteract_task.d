@@ -43,9 +43,9 @@ auto_testmachine\usartinteract_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32
 auto_testmachine\usartinteract_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 auto_testmachine\usartinteract_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 auto_testmachine\usartinteract_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
-auto_testmachine\usartinteract_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
+auto_testmachine\usartinteract_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h
 auto_testmachine\usartinteract_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
 auto_testmachine\usartinteract_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
-auto_testmachine\usartinteract_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h
 auto_testmachine\usartinteract_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
+auto_testmachine\usartinteract_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
 auto_testmachine\usartinteract_task.o: ..\BSP\Serial\bsp_usart.h

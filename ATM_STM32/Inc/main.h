@@ -32,12 +32,12 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "cmsis_os.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
-
+extern osTimerId_t Detect_TimerHandle;
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/

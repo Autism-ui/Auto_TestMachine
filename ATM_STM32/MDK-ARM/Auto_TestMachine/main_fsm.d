@@ -45,9 +45,11 @@ auto_testmachine\main_fsm.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_p
 auto_testmachine\main_fsm.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 auto_testmachine\main_fsm.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 auto_testmachine\main_fsm.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
-auto_testmachine\main_fsm.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
+auto_testmachine\main_fsm.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h
 auto_testmachine\main_fsm.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
 auto_testmachine\main_fsm.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
+auto_testmachine\main_fsm.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
+auto_testmachine\main_fsm.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
 auto_testmachine\main_fsm.o: ..\BSP\adc\bsp_adcdetect.h
 auto_testmachine\main_fsm.o: ../Inc/adc.h
 auto_testmachine\main_fsm.o: ..\Apps\adc_collect.h
