@@ -15,5 +15,4 @@ auto_testmachine\main_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include
 auto_testmachine\main_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
 auto_testmachine\main_task.o: ..\Apps\main_fsm.h
 auto_testmachine\main_task.o: E:\Keil530\ARM\ARMCC\Bin\..\include\stdbool.h
-auto_testmachine\main_task.o: ..\Apps\button.h
 auto_testmachine\main_task.o: ..\Apps\watchdog.h

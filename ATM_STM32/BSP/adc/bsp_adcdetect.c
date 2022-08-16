@@ -20,7 +20,7 @@ extern "C" {
 #include "string.h"
 #include "systime.h"
 /*--- Public variable definitions -----------------------------------------------------*/
-
+int ADC_Module_Complete = 0;
 /*--- Private macros ------------------------------------------------------------------*/
 #define Avg_Num				 20
 #define ADC_Conversion_Ratio 4096.0f
@@ -113,6 +113,7 @@ void bsp_ADC_Reset(void) {
 	memset(ADC_CHANNEL.ADC_Voltage, 0.0f, ADC_CHANNEL_NUM);
 	ADC_CHANNEL.CHANNEL		  = CHANNEL0;
 	ADC_CHANNEL.ADC_DMA_Statu = ADC_DMA_INIT;
+	ADC_Module_Complete = 0;
 }
 
 #ifdef __cplusplus

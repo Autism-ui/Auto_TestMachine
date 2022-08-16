@@ -55,3 +55,4 @@ auto_testmachine\main_fsm.o: ../Inc/adc.h
 auto_testmachine\main_fsm.o: ..\Apps\adc_collect.h
 auto_testmachine\main_fsm.o: ..\Apps\watchdog.h
 auto_testmachine\main_fsm.o: ..\Apps\systime.h
+auto_testmachine\main_fsm.o: ..\Apps\button.h

@@ -38,7 +38,9 @@ static void Device_Init() {
 	USART3_DMA_Init();
 	Button_Init();
 	Detect_Timer_Init();
+#ifdef MAIN_FSM
 	bsp_ADC_Update();
+#endif
 
 #ifdef DOUBLE_BUFFER
 	Enable_Uart3();
@@ -47,7 +49,9 @@ static void Device_Init() {
 /*--- Private function definitions ----------------------------------------------------*/
 void Init_taskFunction(void *argument) {
 	Device_Init();
+#ifdef MAIN_FSM
 	ADC_Detect();
+#endif
 	osDelay(500);
 
 	FeedIndependentWDOG();

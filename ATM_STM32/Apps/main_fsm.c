@@ -22,6 +22,7 @@ extern "C" {
 #include "adc_collect.h"
 #include "watchdog.h"
 #include "systime.h"
+#include "button.h"
 /*--- Public variable definitions -----------------------------------------------------*/
 
 /*--- Private macros ------------------------------------------------------------------*/
@@ -29,7 +30,7 @@ extern "C" {
 /*--- Private type definitions --------------------------------------------------------*/
 static main_sta_t		sta_now				= MAIN_STA_STARTUP, sta_next, sta_previous;
 static main_sta_fatal_t fatal_detail		= MAIN_STA_FATALERROR_NONE;
-static int				ADC_Module_Complete = 0;
+
 static enum {
 	ENTER,
 	RUNNING,
@@ -53,7 +54,11 @@ static void fsm_enter(main_sta_t sta) {
 static void fsm_running(main_sta_t sta) {
 	switch(sta) {
 	case MAIN_STA_STARTUP: mainfsm_switch(MAIN_STA_CHECKSELF); break;
-	case MAIN_STA_CHECKSELF: mainfsm_switch(MAIN_STA_READY); break;
+	case MAIN_STA_CHECKSELF:
+		if(Button_Down_B1 == Button_FIFO_Get()) {
+			mainfsm_switch(MAIN_STA_READY);
+		}
+		break;
 	case MAIN_STA_READY:
 		ADC_Reset();
 		mainfsm_switch(MAIN_STA_ADC_RUNNING);
@@ -67,10 +72,11 @@ static void fsm_running(main_sta_t sta) {
 		if(FAIL == ADC_CHANNEL_Result()) {
 			mainfsm_switch(MAIN_STA_ADC_STOP);
 		} else {
+			/* 执行下一项检测任务 */
 		}
 		break;
 	case MAIN_STA_ADC_STOP:
-		if(0) {	 // button
+		if(Button_Down_B1 == Button_FIFO_Get()) {
 			mainfsm_switch(MAIN_STA_READY);
 		}
 		break;

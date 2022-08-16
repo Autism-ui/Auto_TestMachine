@@ -18,8 +18,8 @@ extern "C" {
 
 /*--- Private dependencies ------------------------------------------------------------*/
 #include "main_fsm.h"
-#include "button.h"
 #include "watchdog.h"
+#include "main_fsm.h"
 /*--- Public variable definitions -----------------------------------------------------*/
 
 /*--- Private macros ------------------------------------------------------------------*/
@@ -31,7 +31,7 @@ static TaskHandle_t MainTaskHandle;
 /*--- Private function declarations ---------------------------------------------------*/
 
 /*--- Private function definitions ----------------------------------------------------*/
-
+main_sta_t sta;
 /*--- Public function definitions -----------------------------------------------------*/
 void Main_Task(void *param) {
 	TickType_t xLastWakeTime;
@@ -43,7 +43,8 @@ void Main_Task(void *param) {
 			FeedIndependentWDOG();
 			count = 0;
 		}
-		Button_Switch();
+		mainfsm();
+		sta = mainfsm_get_sta();
 		vTaskDelayUntil(&xLastWakeTime, 10 / portTICK_RATE_MS);
 	}
 }

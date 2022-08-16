@@ -30,7 +30,7 @@ typedef enum {
 	CHANNEL3,	   // PC3
 } CHANNEL_STU;
 /*--- Public variable declarations ----------------------------------------------------*/
-
+extern int ADC_Module_Complete;
 /*--- Public function declarations ----------------------------------------------------*/
 
 /* CHANNEL0:PC0
