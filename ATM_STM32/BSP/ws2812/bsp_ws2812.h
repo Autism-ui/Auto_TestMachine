@@ -28,12 +28,12 @@ extern "C" {
 /*--- Public function declarations ----------------------------------------------------*/
 void bsp_WS2812_Init(void);
 void bsp_WS2812_SyncAll(void);
-void bsp_WS2812_LED_alloff(void);
 void bsp_WS2812_LED_Write(uint8_t led_index, uint8_t R, uint8_t G, uint8_t B);
 void bsp_WS2812_WriteAll(uint8_t R, uint8_t G, uint8_t B);
 
-void bsp_WS2812_SHOW(uint8_t R, uint8_t G, uint8_t B);
-void bsp_WS2812_CheckSelf(void);
+void bsp_WS2812_Show(uint8_t R, uint8_t G, uint8_t B);
+void bsp_WS2812_LED_Off(void);
+
 #ifdef __cplusplus
 }
 #endif

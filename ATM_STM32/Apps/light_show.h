@@ -17,18 +17,14 @@
 extern "C" {
 #endif
 
-/*--- Public dependencies -------------------------------------------------------------*/
 #include "bsp_adcdetect.h"
 #include "adc_collect.h"
 #include "bsp_ws2812.h"
-/*--- Public macros -------------------------------------------------------------------*/
 
-/*--- Public type definitions ---------------------------------------------------------*/
-
-/*--- Public variable declarations ----------------------------------------------------*/
-
-/*--- Public function declarations ----------------------------------------------------*/
 void WS2812_Detect(CHANNEL_STU CHANNEL, ADC_DETECT_STU Result);
+void WS2812_SHOW(uint8_t r, uint8_t g, uint8_t b);
+void WS2812_LIGHTOFF(void);
+void WS2812_CheckSelf(void);
 
 #ifdef __cplusplus
 }

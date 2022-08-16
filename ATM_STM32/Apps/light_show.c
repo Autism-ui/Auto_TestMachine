@@ -16,21 +16,6 @@
 extern "C" {
 #endif
 
-/*--- Private dependencies ------------------------------------------------------------*/
-
-/*--- Public variable definitions -----------------------------------------------------*/
-
-/*--- Private macros ------------------------------------------------------------------*/
-
-/*--- Private type definitions --------------------------------------------------------*/
-
-/*--- Private variable definitions ----------------------------------------------------*/
-
-/*--- Private function declarations ---------------------------------------------------*/
-
-/*--- Private function definitions ----------------------------------------------------*/
-
-/*--- Public function definitions -----------------------------------------------------*/
 void WS2812_Detect(CHANNEL_STU CHANNEL, ADC_DETECT_STU Result) {
 	if(Result == FAIL) {
 		bsp_WS2812_LED_Write(CHANNEL, 10, 0, 0);
@@ -38,6 +23,25 @@ void WS2812_Detect(CHANNEL_STU CHANNEL, ADC_DETECT_STU Result) {
 		bsp_WS2812_LED_Write(CHANNEL, 0, 10, 0);
 	}
 }
+
+void WS2812_SHOW(uint8_t r, uint8_t g, uint8_t b) {
+	bsp_WS2812_Show(r, g, b);
+}
+
+void WS2812_LIGHTOFF() {
+	bsp_WS2812_LED_Off();
+}
+
+void WS2812_CheckSelf(void) {
+	vTaskDelay(pdMS_TO_TICKS(200));
+	WS2812_SHOW(200, 0, 0);
+	vTaskDelay(pdMS_TO_TICKS(200));
+	WS2812_SHOW(0, 200, 0);
+	vTaskDelay(pdMS_TO_TICKS(200));
+	WS2812_SHOW(0, 0, 200);
+	vTaskDelay(pdMS_TO_TICKS(200));
+}
+
 #ifdef __cplusplus
 }
 #endif

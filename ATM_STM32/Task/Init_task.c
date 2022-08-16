@@ -24,6 +24,7 @@ extern "C" {
 #include "main_fsm.h"
 #include "detect_timer.h"
 #include "bsp_ws2812.h"
+#include "light_show.h"
 #include "systime.h"
 #include "Main_Task.h"			 //主任务
 #include "UsartInteract_Task.h"	 // 串口交互任务
@@ -40,7 +41,7 @@ static void Device_Init() {
 	USART3_DMA_Init();
 	Button_Init();
 	bsp_WS2812_Init();
-	bsp_WS2812_CheckSelf();
+	WS2812_CheckSelf();
 	FeedIndependentWDOG();
 	Detect_Timer_Init();
 #ifdef MAIN_FSM
@@ -62,7 +63,8 @@ void Init_taskFunction(void *argument) {
 
 	Main_TaskCreate(osPriorityNormal);			 //主任务
 	UsartInteract_TaskCreate(osPriorityNormal);	 // 串口交互任务
-	bsp_WS2812_LED_alloff();
+	WS2812_LIGHTOFF();
+
 	vTaskDelete(NULL);
 }
 /*--- Public function definitions -----------------------------------------------------*/

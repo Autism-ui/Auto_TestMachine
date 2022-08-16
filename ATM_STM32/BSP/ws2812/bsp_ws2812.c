@@ -88,14 +88,14 @@ static void Send_2812_24bits(uint8_t RData, uint8_t GData, uint8_t BData) {
 void bsp_WS2812_Init(void) {
 	WS2812_Struct_Init();
 	delay_100ns(2000);
-	bsp_WS2812_LED_alloff();
+	bsp_WS2812_LED_Off();
 }
 void bsp_WS2812_SyncAll(void) {
 	for(int i = 0; i < WS2812_PIXEL_NUM; i++) {
 		Send_2812_24bits(Show_RESULT_LED[i].R, Show_RESULT_LED[i].G, Show_RESULT_LED[i].B);
 	}
 }
-void bsp_WS2812_LED_alloff(void) {
+void bsp_WS2812_LED_Off(void) {
 	for(int i = 0; i < WS2812_PIXEL_NUM; i++) {
 		Send_2812_24bits(0, 0, 0);
 	}
@@ -117,23 +117,13 @@ void bsp_WS2812_WriteAll(uint8_t R, uint8_t G, uint8_t B) {
 	}
 }
 
-void bsp_WS2812_SHOW(uint8_t R, uint8_t G, uint8_t B) {
+void bsp_WS2812_Show(uint8_t R, uint8_t G, uint8_t B) {
 	for(uint8_t i = 0; i < WS2812_PIXEL_NUM; i++) {
 		Show_RESULT_LED[i].R = R;
 		Show_RESULT_LED[i].G = G;
 		Show_RESULT_LED[i].B = B;
 	}
 	bsp_WS2812_SyncAll();
-}
-
-void bsp_WS2812_CheckSelf(void) {
-	vTaskDelay(pdMS_TO_TICKS(200));
-	bsp_WS2812_SHOW(200, 0, 0);
-	vTaskDelay(pdMS_TO_TICKS(200));
-	bsp_WS2812_SHOW(0, 200, 0);
-	vTaskDelay(pdMS_TO_TICKS(200));
-	bsp_WS2812_SHOW(0, 0, 200);
-	vTaskDelay(pdMS_TO_TICKS(200));
 }
 
 #ifdef __cplusplus

@@ -58,6 +58,7 @@ auto_testmachine\init_task.o: ..\Apps\main_fsm.h
 auto_testmachine\init_task.o: ..\Apps\detect_timer.h
 auto_testmachine\init_task.o: ..\BSP\ws2812\bsp_ws2812.h
 auto_testmachine\init_task.o: ../Inc/gpio.h
+auto_testmachine\init_task.o: ..\Apps\light_show.h
 auto_testmachine\init_task.o: ..\Apps\systime.h
 auto_testmachine\init_task.o: ..\Task\Main_Task.h
 auto_testmachine\init_task.o: ..\Task\UsartInteract_Task.h
