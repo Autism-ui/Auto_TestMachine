@@ -50,3 +50,6 @@ auto_testmachine\adc_collect.o: ../Middlewares/Third_Party/FreeRTOS/Source/inclu
 auto_testmachine\adc_collect.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
 auto_testmachine\adc_collect.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
 auto_testmachine\adc_collect.o: E:\Keil530\ARM\ARMCC\Bin\..\include\string.h
+auto_testmachine\adc_collect.o: ..\Apps\light_show.h
+auto_testmachine\adc_collect.o: ..\BSP\ws2812\bsp_ws2812.h
+auto_testmachine\adc_collect.o: ../Inc/gpio.h

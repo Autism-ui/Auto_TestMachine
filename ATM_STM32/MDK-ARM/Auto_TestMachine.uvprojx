@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F407xx</Define>
               <Undefine></Undefine>
-              <IncludePath>../Inc;   ../Drivers/STM32F4xx_HAL_Driver/Inc;   ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;   ../Middlewares/Third_Party/FreeRTOS/Source/include;   ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2;   ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;   ../Drivers/CMSIS/Device/ST/STM32F4xx/Include;   ../Drivers/CMSIS/Include;   ..\Apps;   ..\Task;   ..\BSP\adc;   ..\BSP\Serial</IncludePath>
+              <IncludePath>../Inc; ../Drivers/STM32F4xx_HAL_Driver/Inc; ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy; ../Middlewares/Third_Party/FreeRTOS/Source/include; ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2; ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F; ../Drivers/CMSIS/Device/ST/STM32F4xx/Include; ../Drivers/CMSIS/Include; ..\Apps; ..\Task; ..\BSP\adc; ..\BSP\Serial; ..\BSP\ws2812</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -623,6 +623,11 @@
               <FileType>1</FileType>
               <FilePath>..\BSP\Serial\bsp_usart.c</FilePath>
             </File>
+            <File>
+              <FileName>bsp_ws2812.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\BSP\ws2812\bsp_ws2812.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -657,6 +662,11 @@
               <FileName>detect_timer.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Apps\detect_timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>light_show.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Apps\light_show.c</FilePath>
             </File>
           </Files>
         </Group>

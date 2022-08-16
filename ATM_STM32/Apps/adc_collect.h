@@ -20,7 +20,7 @@ extern "C" {
 #endif
 
 /*CH0-PC0*/
-#define CHANNEL0_MIN 0.0f
+#define CHANNEL0_MIN 0.1f
 #define CHANNEL0_MAX 3.3f
 /*CH1-PC1*/
 #define CHANNEL1_MIN 0.0f
@@ -29,7 +29,7 @@ extern "C" {
 #define CHANNEL2_MIN 0.0f
 #define CHANNEL2_MAX 3.3f
 /*CH3-PC3*/
-#define CHANNEL3_MIN 0.0f
+#define CHANNEL3_MIN 0.1f
 #define CHANNEL3_MAX 3.3f
 
 typedef enum {

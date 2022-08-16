@@ -19,6 +19,7 @@ extern "C" {
 /*--- Private dependencies ------------------------------------------------------------*/
 #include "string.h"
 #include "stdbool.h"
+#include "light_show.h"
 /*--- Public variable definitions -----------------------------------------------------*/
 
 /*--- Private macros ------------------------------------------------------------------*/
@@ -43,20 +44,37 @@ static ADC_DETECT_STU Judge_ADC_CHANNEL(CHANNEL_STU CHANNEL,
 	return ADC_COLLECT.ADC_DETECT[CHANNEL];
 }
 /*--- Public function definitions -----------------------------------------------------*/
-
 void ADC_Detect(void) {
 	/* 将检测状态初始化为FAIL */
 	memset(ADC_COLLECT.ADC_DETECT, FAIL, ADC_CHANNEL_NUM);
 
 	/* 测量段 */
-	Judge_ADC_CHANNEL(CHANNEL0, Get_WhichChannel_Voltage(CHANNEL0), CHANNEL0_MIN, CHANNEL0_MAX);
-	Judge_ADC_CHANNEL(CHANNEL1, Get_WhichChannel_Voltage(CHANNEL1), CHANNEL1_MIN, CHANNEL1_MAX);
-	Judge_ADC_CHANNEL(CHANNEL2, Get_WhichChannel_Voltage(CHANNEL2), CHANNEL2_MIN, CHANNEL2_MAX);
-	Judge_ADC_CHANNEL(CHANNEL3, Get_WhichChannel_Voltage(CHANNEL3), CHANNEL3_MIN, CHANNEL3_MAX);
+	WS2812_Detect(CHANNEL0,
+				  Judge_ADC_CHANNEL(CHANNEL0,
+									Get_WhichChannel_Voltage(CHANNEL0),
+									CHANNEL0_MIN,
+									CHANNEL0_MAX));
+	WS2812_Detect(CHANNEL1,
+				  Judge_ADC_CHANNEL(CHANNEL1,
+									Get_WhichChannel_Voltage(CHANNEL1),
+									CHANNEL1_MIN,
+									CHANNEL1_MAX));
+	WS2812_Detect(CHANNEL2,
+				  Judge_ADC_CHANNEL(CHANNEL2,
+									Get_WhichChannel_Voltage(CHANNEL2),
+									CHANNEL2_MIN,
+									CHANNEL2_MAX));
+	WS2812_Detect(CHANNEL3,
+				  Judge_ADC_CHANNEL(CHANNEL3,
+									Get_WhichChannel_Voltage(CHANNEL3),
+									CHANNEL3_MIN,
+									CHANNEL3_MAX));
 }
 
 void ADC_Reset(void) {
 	bsp_ADC_Reset();
+	bsp_WS2812_WriteAll(5, 5, 5);
+	bsp_WS2812_SyncAll();
 }
 
 bool ADC_CHANNEL_Result(void) {

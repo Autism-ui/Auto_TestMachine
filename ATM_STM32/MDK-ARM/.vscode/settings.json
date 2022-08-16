@@ -19,6 +19,8 @@
         "cstdint": "c",
         "main_task.h": "c",
         "freertos.h": "c",
-        "main.h": "c"
+        "main.h": "c",
+        "bsp_ws2812.h": "c",
+        "light_show.h": "c"
     }
 }

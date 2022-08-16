@@ -23,13 +23,14 @@ extern "C" {
 #include "watchdog.h"
 #include "systime.h"
 #include "button.h"
+#include "bsp_ws2812.h"
 /*--- Public variable definitions -----------------------------------------------------*/
 
 /*--- Private macros ------------------------------------------------------------------*/
 
 /*--- Private type definitions --------------------------------------------------------*/
-static main_sta_t		sta_now				= MAIN_STA_STARTUP, sta_next, sta_previous;
-static main_sta_fatal_t fatal_detail		= MAIN_STA_FATALERROR_NONE;
+static main_sta_t		sta_now		 = MAIN_STA_STARTUP, sta_next, sta_previous;
+static main_sta_fatal_t fatal_detail = MAIN_STA_FATALERROR_NONE;
 
 static enum {
 	ENTER,
@@ -70,6 +71,7 @@ static void fsm_running(main_sta_t sta) {
 			ADC_Module_Complete = 1;
 		}
 		if(FAIL == ADC_CHANNEL_Result()) {
+			bsp_WS2812_SyncAll();
 			mainfsm_switch(MAIN_STA_ADC_STOP);
 		} else {
 			/* 执行下一项检测任务 */
