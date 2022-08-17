@@ -26,6 +26,7 @@ extern "C" {
 #include "bsp_ws2812.h"
 #include "light_show.h"
 #include "systime.h"
+#include "SuperMario_Music.h"
 #include "Main_Task.h"			 //主任务
 #include "UsartInteract_Task.h"	 // 串口交互任务
 /*--- Public variable definitions -----------------------------------------------------*/
@@ -63,7 +64,9 @@ void Init_taskFunction(void *argument) {
 
 	Main_TaskCreate(osPriorityNormal);			 //主任务
 	UsartInteract_TaskCreate(osPriorityNormal);	 // 串口交互任务
+	SuperMario_InitMusic();
 	WS2812_LIGHTOFF();
+	
 
 	vTaskDelete(NULL);
 }

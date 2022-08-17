@@ -48,6 +48,7 @@ auto_testmachine\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V
 auto_testmachine\main.o: ../Inc/adc.h
 auto_testmachine\main.o: ../Inc/dma.h
 auto_testmachine\main.o: ../Inc/iwdg.h
+auto_testmachine\main.o: ../Inc/tim.h
 auto_testmachine\main.o: ../Inc/usart.h
 auto_testmachine\main.o: ../Inc/gpio.h
 auto_testmachine\main.o: ..\Apps\watchdog.h

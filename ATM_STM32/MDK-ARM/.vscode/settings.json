@@ -21,6 +21,7 @@
         "freertos.h": "c",
         "main.h": "c",
         "bsp_ws2812.h": "c",
-        "light_show.h": "c"
+        "light_show.h": "c",
+        "supermario_music.h": "c"
     }
 }
