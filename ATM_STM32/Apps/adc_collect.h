@@ -20,17 +20,17 @@ extern "C" {
 #endif
 
 /*CH0-PC0*/
-#define CHANNEL0_MIN 0.0f
-#define CHANNEL0_MAX 1.0f
+#define CHANNEL0_MIN 2.35f
+#define CHANNEL0_MAX 2.41f
 /*CH1-PC1*/
-#define CHANNEL1_MIN 0.0f
-#define CHANNEL1_MAX 2.0f
+#define CHANNEL1_MIN 0.45f
+#define CHANNEL1_MAX 0.52f
 /*CH2-PC2*/
-#define CHANNEL2_MIN 2.5f
-#define CHANNEL2_MAX 3.3f
+#define CHANNEL2_MIN 0.39f
+#define CHANNEL2_MAX 0.43f
 /*CH3-PC3*/
-#define CHANNEL3_MIN 1.5f
-#define CHANNEL3_MAX 3.3f
+#define CHANNEL3_MIN 0.29f
+#define CHANNEL3_MAX 0.34
 
 typedef enum {
 	FAIL,
