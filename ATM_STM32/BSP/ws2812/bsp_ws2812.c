@@ -91,14 +91,18 @@ void bsp_WS2812_Init(void) {
 	bsp_WS2812_LED_Off();
 }
 void bsp_WS2812_SyncAll(void) {
+	DISABLE_IRQ();
 	for(int i = 0; i < WS2812_PIXEL_NUM; i++) {
 		Send_2812_24bits(Show_RESULT_LED[i].R, Show_RESULT_LED[i].G, Show_RESULT_LED[i].B);
 	}
+	ENABLE_IRQ();
 }
 void bsp_WS2812_LED_Off(void) {
+	DISABLE_IRQ();
 	for(int i = 0; i < WS2812_PIXEL_NUM; i++) {
 		Send_2812_24bits(0, 0, 0);
 	}
+	ENABLE_IRQ();
 	bsp_WS2812_SyncAll();
 }
 void bsp_WS2812_LED_Write(uint8_t led_index, uint8_t R, uint8_t G, uint8_t B) {
