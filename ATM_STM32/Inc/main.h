@@ -62,6 +62,16 @@ void Error_Handler(void);
 #define Button_GPIO_Port GPIOA
 #define LED_Pin GPIO_PIN_1
 #define LED_GPIO_Port GPIOA
+#define SPI2_CS_LCD_Pin GPIO_PIN_6
+#define SPI2_CS_LCD_GPIO_Port GPIOA
+#define SPI1_CS_FLASH_Pin GPIO_PIN_15
+#define SPI1_CS_FLASH_GPIO_Port GPIOA
+#define LCD_LED_Pin GPIO_PIN_2
+#define LCD_LED_GPIO_Port GPIOD
+#define LCD_RESET_Pin GPIO_PIN_3
+#define LCD_RESET_GPIO_Port GPIOD
+#define LCD_DCX_Pin GPIO_PIN_4
+#define LCD_DCX_GPIO_Port GPIOD
 #define WS2812_Pin GPIO_PIN_0
 #define WS2812_GPIO_Port GPIOE
 /* USER CODE BEGIN Private defines */
