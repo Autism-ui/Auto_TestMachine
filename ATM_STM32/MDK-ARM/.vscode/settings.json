@@ -22,6 +22,8 @@
         "main.h": "c",
         "bsp_ws2812.h": "c",
         "light_show.h": "c",
-        "supermario_music.h": "c"
+        "supermario_music.h": "c",
+        "sys.h": "c",
+        "bsp_can.h": "c"
     }
 }
