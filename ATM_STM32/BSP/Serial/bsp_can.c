@@ -19,7 +19,7 @@ extern "C" {
 /*--- Private dependencies ------------------------------------------------------------*/
 #include "bsp_can.h"
 /*--- Public variable definitions -----------------------------------------------------*/
-CAN_manage_obj_t can1_manage_obj = { 0 };
+CAN_Manage_Obj_t CAN1_Manage = { 0 };
 
 uint8_t can1_tx_buff[CAN1_TX_BUFFER_SIZE] = { 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08 };
 uint8_t can1_rx_buff[CAN1_RX_BUFFER_SIZE];
@@ -31,18 +31,10 @@ uint8_t txbuf[8] = { 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08 };
 
 #define CAN_TEST 1
 
-/*--- Private type definitions --------------------------------------------------------*/
-
 CAN_FilterTypeDef sFilterConfig;
 
-/*--- Private variable definitions ----------------------------------------------------*/
-// extern CAN_HandleTypeDef hcan1;
-/*--- Private function declarations ---------------------------------------------------*/
-
-/*--- Private function definitions ----------------------------------------------------*/
-
 /**
- * @brief  FIFO邮箱初始化
+ * @brief  FIFO_Init
  * @param  CANx 		CAN编号
  * 		id_type ·	id类型 CAN_ID_STD， CAN_ID_EXT
  *			id			id号
@@ -120,12 +112,9 @@ void CAN_SendData(CAN_HandleTypeDef* CANx, uint8_t id_type, uint32_t id, uint8_t
 	}
 
 #endif
-
 	for(int i = 0; i < 8; i++) {
 		TxMessage.Data[i] = data[i];
 	}
-	// HAL_CAN_AddTxMessage(&hcan1,&TxMessage.SendCanTxMsg,TxMessage.Data,(uint32_t
-	// *)CAN_TX_MAILBOX0);
 	xQueueSend(xQueueCanSend, &TxMessage, 10);
 }
 
@@ -152,19 +141,16 @@ void CAN_Sendata_protocl(CAN_HandleTypeDef* CAN_Num,
 	CAN_SendData(CAN_Num, CAN_ID_STD, 0x200, data);
 }
 
-void can_manage_init(void) {
-	can1_manage_obj.hcan		   = &hcan1;
-	can1_manage_obj.StdId		   = 0x123;
-	can1_manage_obj.rx_buffer	   = can1_rx_buff;
-	can1_manage_obj.rx_buffer_szie = CAN1_RX_BUFFER_SIZE;
-	can1_manage_obj.tx_buffer	   = can1_tx_buff;
-	can1_manage_obj.tx_buffer_szie = CAN1_TX_BUFFER_SIZE;
-	can1_manage_obj.Recevie_finish = 0;
+void CAN_Manage_Init(void) {
+	CAN1_Manage.hcan		   = &hcan1;
+	CAN1_Manage.StdId		   = 0x123;
+	CAN1_Manage.rx_buffer	   = can1_rx_buff;
+	CAN1_Manage.rx_buffer_size = CAN1_RX_BUFFER_SIZE;
+	CAN1_Manage.tx_buffer	   = can1_tx_buff;
+	CAN1_Manage.tx_buffer_size = CAN1_TX_BUFFER_SIZE;
+	CAN1_Manage.Recevie_finish = 0;
 }
 
-/*
- *
- */
 void Canbus_Recevice_Data_IT(CAN_HandleTypeDef* hcan) {
 	CAN_RxMsg_t CAN_RxMessage;
 	if(__HAL_CAN_GET_IT_SOURCE(&hcan1, CAN_IT_RX_FIFO1_MSG_PENDING)) {
@@ -176,7 +162,7 @@ void Canbus_Recevice_Data_IT(CAN_HandleTypeDef* hcan) {
 		CAN_RxMessage.CANx = 1;
 		if(CAN_RxMessage.ReceiveCanRxMsg.StdId == 0x123) {
 			xQueueSendToBackFromISR(xQueueCanReceive, &CAN_RxMessage, 0);
-			// can1_manage_obj.Recevie_finish = 1;
+			// CAN1_Manage.Recevie_finish = 1;
 			// //接收完成标志位
 		}
 
@@ -184,36 +170,9 @@ void Canbus_Recevice_Data_IT(CAN_HandleTypeDef* hcan) {
 	}
 }
 
-///**
-// * @brief  HAL Library CAN Recevie IT callback function redirect
-// * @note
-// * @param  *hcan:
-// * @retval None
-// */
-// void HAL_CAN_RxFifo1MsgPendingCallback(CAN_HandleTypeDef *hcan){
-
-//	if(hcan == &hcan1){
-
-//		if(can1_manage_obj.){
-
-//		}
-
-//		Canbus_Recevice_Data_IT();
-//	}
-//	// else if(hcan == &hcan2){
-//	// }
-//}
-
 #ifdef CAN_TEST
 
-// can
 CAN_TxHeaderTypeDef Can_Tx;
-
-//	Can_Tx.StdId = 0x123;
-//	Can_Tx.ExtId = 0x123;
-//	Can_Tx.IDE = CAN_ID_STD;
-//	Can_Tx.RTR = 0;
-//	Can_Tx.DLC = 8;
 
 void can_test(void) {
 	//		HAL_CAN_AddTxMessage(&hcan1,&Can_Tx,txbuf,(uint32_t*)CAN_TX_MAILBOX0);
