@@ -13,21 +13,9 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-/**
- *
- * @file drv_tim.c
- * @author Heyihan (316383560@qq.com)
- * @brief This file is the driver source file for the Tim peripheral
- * @version 0.1
- * @date 2022-08-16
- *
- * @copyright Copyright (c) 2022
- *
- */
+#include "sys.h"
 
 /*--- Private dependencies ------------------------------------------------------------*/
-#include "tim.h"
 #include "bsp_tim.h"
 #include <assert.h>
 /*--- Public variable definitions -----------------------------------------------------*/
@@ -71,16 +59,14 @@ typedef enum {
  */
 typedef enum {
 
-	Level_DN = 0,
+	Level_DOWN = 0,
 	Level_UP,
 
 } Capture_level_e;
 
 Chip_type_e Chip_type;
 Captor_id_e Captor_id;
-/*--- Private variable definitions ----------------------------------------------------*/
 
-/*--- Private function declarations ---------------------------------------------------*/
 void TIM_Capture_IC_callback(TIM_ActiveChannel Chx, Captor_id_e Captor_id);
 
 uint32_t TIM_getCaptureVal(struct TIM_Captor *p_Dev, uint8_t Level);
@@ -135,15 +121,8 @@ struct TIM_Captor Captor[] = {
 
 };
 
-/*--- Public function definitions -----------------------------------------------------*/
-/* ------------------------- public API ------------------------- */
-/**
- * @brief  API functions provided externally for TIM captor initialize
- * @note
- * @retval None
- */
 /* TIM caputre device  *************************/
-void Captor_init(void) {
+void Captor_Init(void) {
 	// Enable TIMx
 	__HAL_TIM_ENABLE(&htim1);
 	__HAL_TIM_ENABLE(&htim4);
@@ -226,9 +205,6 @@ void CaptureStart_IT(uint8_t idx) {
 	return;
 
 ERR:
-	/*
-	 * err process
-	 * */
 	printf("HAL_TIM_IC_Start_IT Fail!!");
 	assert(0);
 
@@ -285,7 +261,7 @@ uint32_t TIM_getCaptureVal(struct TIM_Captor *p_Dev, uint8_t Level) {
 
 	if(Level == Level_UP) {
 		return HAL_TIM_ReadCapturedValue(p_Dev->htimx, p_Dev->Channel_UP);
-	} else if(Level == Level_DN) {
+	} else if(Level == Level_DOWN) {
 		return HAL_TIM_ReadCapturedValue(p_Dev->htimx, p_Dev->Channel_DN);
 	}
 
@@ -305,7 +281,7 @@ uint32_t TIM_getCaptureVal(struct TIM_Captor *p_Dev, uint8_t Level) {
  */
 void TIM_GetVal(struct TIM_Captor *p_Dev) {
 	p_Dev->Cap_val1 = p_Dev->TIM_Capture(p_Dev, Level_UP);
-	p_Dev->Cap_val2 = p_Dev->TIM_Capture(p_Dev, Level_DN);
+	p_Dev->Cap_val2 = p_Dev->TIM_Capture(p_Dev, Level_DOWN);
 }
 
 /**
