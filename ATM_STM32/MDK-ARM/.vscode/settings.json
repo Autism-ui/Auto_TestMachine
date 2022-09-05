@@ -25,6 +25,8 @@
         "supermario_music.h": "c",
         "sys.h": "c",
         "bsp_can.h": "c",
-        "bsp_tim.h": "c"
+        "bsp_tim.h": "c",
+        "bsp_flash.h": "c",
+        "bsp_spi.h": "c"
     }
 }

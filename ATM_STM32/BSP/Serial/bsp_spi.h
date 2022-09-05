@@ -17,36 +17,26 @@
 extern "C" {
 #endif
 
-/**
- * @file drv_spi.h
- * @author Hans (316383560@qq.com)
- * @brief This file is the driver header file for the SPI communication device
- * @version 0.1
- * @date 2022-08-15
- * 
- * @copyright Copyright (c) 2022
- * 
- */
-
 /*-------------------------- Readme first when you use this file --------------------------*/
 /**
  * Method of use:
- *  when you want to use this function, you can just put 'bsp_spi_init' into the BSP init function,then the spi will be useful
- * 
- * 
+ *  when you want to use this function, you can just put 'bsp_spi_init' into the BSP init
+ function,then the spi will be useful
+ *
+ *
  * instructions:
  *  Call the 'bsp_spi_Transfer' function when you want to use the SPI bus for communication.
-   Of course, you need to populate the function with parameters, 
-   in which case you need to provide an object that specifies the device that the SPI needs to transmit (the first argument), 
-   followed by the sent buffer, received buffer, and number of bytes.
- * 
- * 
+   Of course, you need to populate the function with parameters,
+   in which case you need to provide an object that specifies the device that the SPI needs to
+ transmit (the first argument), followed by the sent buffer, received buffer, and number of bytes.
+ *
+ *
  * API to use:
  * 1. bsp_spi_init
  * 2. bsp_spi_Transfer
- * 
- * 
- * * * * * * * * * * * * * 
+ *
+ *
+ * * * * * * * * * * * * *
  */
 
 /*--- Public dependencies -------------------------------------------------------------*/
@@ -55,70 +45,73 @@ extern "C" {
 /*--- Public macros -------------------------------------------------------------------*/
 #define SPI_NUM 1
 /*--- Public type definitions ---------------------------------------------------------*/
-typedef enum{
-    SPI_ERR_NONE,
-    SPI_ERR_RECEIVE,
-    SPI_ERR_TRANSMIT,
-    SPI_ERR_WR,
-    SPI_ERR_TIMEOUT,
+typedef enum {
+	SPI_ERR_NONE,
+	SPI_ERR_RECEIVE,
+	SPI_ERR_TRANSMIT,
+	SPI_ERR_WR,
+	SPI_ERR_TIMEOUT,
 } spi_err_type_e;
 
 typedef enum {
 	SPI_SEL_NONE,
 	SPI_SEL_Flash,
-  SPI_SEL_LCD,
-} spi_sel_t_e;      //FlashÓÃÓÚ²âÊÔSPIÍ¨ÐÅÊÇ·ñµ÷Í¨
+	SPI_SEL_LCD,
+} spi_sel_t_e;	// Flashï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½SPIÍ¨ï¿½ï¿½ï¿½Ç·ï¿½ï¿½Í¨
 
-typedef enum{
-    SPI_CS_DOWN,
-    SPI_CS_UP,
+typedef enum {
+	SPI_CS_DOWN,
+	SPI_CS_UP,
 } spi_cs_status_e;
 
-typedef enum{
-    SPI_STOP,
-    SPI_SEND,
-    SPI_RECEIVE,
-}spi_send_state_e;
+typedef enum {
+	SPI_STOP,
+	SPI_SEND,
+	SPI_RECEIVE,
+} spi_send_state_e;
 
-typedef struct spi_Device_t{									//spiÉè±¸¶ÔÏó
+typedef struct spi_Device_t {  // spiï¿½è±¸ï¿½ï¿½ï¿½ï¿½
 
-    //ÊôÐÔ
-    SPI_HandleTypeDef *spix;
-		spi_sel_t_e spi_id;                                         //Éè±¸id,ÔÚÍ¬Ò»¸öSPIÉè±¸ÉÏ£¨SPI1»òÕßSPI2ÉÏ¿ÉÒÔÓÐºÜ¶àÉè±¸£¬ÕâÀïÓÃIDÀ´Çø·ÖËûÃÇ£©
-    uint8_t cs_status;									//Æ¬Ñ¡ÏßµÄ×´Ì¬
+	//ï¿½ï¿½ï¿½ï¿½
+	SPI_HandleTypeDef *spix;
+	spi_sel_t_e		   spi_id;	//ï¿½è±¸id,ï¿½ï¿½Í¬Ò»ï¿½ï¿½SPIï¿½è±¸ï¿½Ï£ï¿½SPI1ï¿½ï¿½ï¿½ï¿½SPI2ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½ÐºÜ¶ï¿½ï¿½è±¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½IDï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç£ï¿½
+	uint8_t			   cs_status;  //Æ¬Ñ¡ï¿½ßµï¿½×´Ì¬
 
-    uint8_t is_vaild: 1;
-    uint8_t send_state: 2;                                     
+	uint8_t is_vaild : 1;
+	uint8_t send_state : 2;
 
-    //²Ù×÷
-    void (* spi_set_cs)(struct spi_Device_t*,GPIO_PinState);
+	//ï¿½ï¿½ï¿½ï¿½
+	void (*spi_set_cs)(struct spi_Device_t *, GPIO_PinState);
 
-}SPI_Device, * p_SPI_Device;
+} SPI_Device, *p_SPI_Device;
 
-
-typedef spi_err_type_e spi_err;     //±ð³ÆÍâ²¿ÓÃÕâ¸öÀàÐÍ½øÐÐ¹Û²â£¬¶ø²»ÒªÖ±½ÓÊ¹ÓÃspi_err_type_e
+typedef spi_err_type_e spi_err;	 //ï¿½ï¿½ï¿½ï¿½â²¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í½ï¿½ï¿½Ð¹Û²â£¬ï¿½ï¿½ï¿½ï¿½ÒªÖ±ï¿½ï¿½Ê¹ï¿½ï¿½spi_err_type_e
 
 /*--- Public variable declarations ----------------------------------------------------*/
-//extern SPI_Device SPI[SPI_NUM];
-extern spi_err spi_err_state;        //È«¾Ö£¬Íâ²¿¿ÉÒÔ¹Û²âspiÉè±¸×´Ì¬,Òª¹Û²âÖ±½ÓÔÚ¸Ã.cÎÄ¼þÖÐ¶¨Òåspi_err spi_err_state±äÁ¿
-
+// extern SPI_Device SPI[SPI_NUM];
+extern spi_err spi_err_state;  //È«ï¿½Ö£ï¿½ï¿½â²¿ï¿½ï¿½ï¿½Ô¹Û²ï¿½spiï¿½è±¸×´Ì¬,Òªï¿½Û²ï¿½Ö±ï¿½ï¿½ï¿½Ú¸ï¿½.cï¿½Ä¼ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½spi_err spi_err_stateï¿½ï¿½ï¿½ï¿½
 
 /*--- Public function declarations ----------------------------------------------------*/
-/*---------------- ¶ÔÍâµÄAPI½Ó¿Ú ----------------*/
-spi_err bsp_spi_write(spi_sel_t_e sel,uint8_t* pTxData,uint16_t Size);
-spi_err bsp_spi_read(spi_sel_t_e sel,uint8_t *pRxData,uint16_t Size);
-spi_err bsp_spi_write_read(spi_sel_t_e sel,uint8_t* pTxData,uint8_t *pRxData,uint16_t Size);
+/*---------------- ï¿½ï¿½ï¿½ï¿½ï¿½APIï¿½Ó¿ï¿½ ----------------*/
+spi_err bsp_spi_write(spi_sel_t_e sel, uint8_t *pTxData, uint16_t Size);
+spi_err bsp_spi_read(spi_sel_t_e sel, uint8_t *pRxData, uint16_t Size);
+spi_err bsp_spi_write_read(spi_sel_t_e sel, uint8_t *pTxData, uint8_t *pRxData, uint16_t Size);
 
-spi_err bsp_spi_Transfer(spi_sel_t_e sel,uint8_t* pTxData,uint8_t *pRxData,uint16_t tSize,uint16_t rSize);
+spi_err bsp_spi_Transfer(spi_sel_t_e sel,
+						 uint8_t	 *pTxData,
+						 uint8_t	 *pRxData,
+						 uint16_t	 tSize,
+						 uint16_t	 rSize);
 
-spi_err bsp_spi_write_NO_CS(spi_sel_t_e sel,uint8_t* pTxData,uint16_t Size);
-spi_err bsp_spi_read_NO_CS(spi_sel_t_e sel,uint8_t *pRxData,uint16_t Size);
-spi_err bsp_spi_write_read_NO_CS(spi_sel_t_e sel,uint8_t* pTxData,uint8_t *pRxData,uint16_t Size);
-
-
+spi_err bsp_spi_write_NO_CS(spi_sel_t_e sel, uint8_t *pTxData, uint16_t Size);
+spi_err bsp_spi_read_NO_CS(spi_sel_t_e sel, uint8_t *pRxData, uint16_t Size);
+spi_err bsp_spi_write_read_NO_CS(spi_sel_t_e sel,
+								 uint8_t	 *pTxData,
+								 uint8_t	 *pRxData,
+								 uint16_t	 Size);
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif  // __DRV_SPI_H__
+#endif	// __DRV_SPI_H__
