@@ -37,7 +37,7 @@ uint8_t BSP_W25Qx_Read(uint8_t* pData, uint32_t ReadAddr, uint32_t Size) {
 	return 0;
 }
 
-//��ȡ״̬�Ĵ���1�����ݣ������ȡ�ɹ�˵��SPIͨ�ſ���ʹ��
+// 读取状态寄存器1的数据，如果读取成功说明SPI通信可以使用
 void BSP_W25Qx_Read_Status_Register_1_2(uint8_t* pData) {
 }
 

@@ -15,7 +15,6 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-
 /*--- Private dependencies ------------------------------------------------------------*/
 #include "bsp_adcdetect.h"
 #include "adc_collect.h"
@@ -61,12 +60,10 @@ void Init_taskFunction(void *argument) {
 	osDelay(100);
 	FeedIndependentWDOG();
 #endif
-
 	Main_TaskCreate(osPriorityNormal);			 //主任务
 	UsartInteract_TaskCreate(osPriorityNormal);	 // 串口交互任务
 	SuperMario_InitMusic();
 	WS2812_LIGHTOFF();
-	
 
 	vTaskDelete(NULL);
 }

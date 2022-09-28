@@ -10,8 +10,8 @@
 /* file 'LICENSE.txt', which is part of this source code package.*/
 /*****************************************************************/
 
-#ifndef __DRV_FLASH_H__
-#define __DRV_FLASH_H__
+#ifndef __BSP_FLASH_H__
+#define __BSP_FLASH_H__
 
 #ifdef __cplusplus
 extern "C" {
@@ -22,34 +22,34 @@ extern "C" {
 /*--- Public macros -------------------------------------------------------------------*/
 // W25Qxx INSTRUCTIONS (The Flash model in use is WX25Q16)
 // 10.2.2 Instruction Set Table 1
-#define WRITE_ENABLE						0X06
-#define WRITE_DISABLE						0X04
-#define READ_STATUS_REGISTER_1				0X05
-#define READ_STATUS_REGISTER_2				0X35
-#define WRITE_STATUS_REGISTER				0X01
-#define PAGE_PROGRAM						0X02
-#define QUAD_PAGE_PROGRAM					0X32
-#define BLOCK_ERASE_64						0xD8  // 64KB
-#define BLOCK_ERASE_32						0X52  // 32KB
-#define SECTOR_ERASE_4						0X20  // 4KB
-#define CHIP_ERASE							0XC7
-#define ERASE_SUSPEND						0X75
-#define ERASE_RESUNME						0X7A
-#define POWER_DOWN							0XB9
-#define HIGH_PERFORMANCE_MODE				0XA3
-#define MODE_BIT_RESET						0XFF
-#define RELEASE_POWER_DOWN_OR_HPM_DEVICE_ID 0XAB
-#define MANUFACTURER_DEVICE_ID				0X90
-#define READ_UNIQUE_ID						0X4B
-#define JEDEC_ID							0X9F
+#define WRITE_ENABLE						0X06  // 开启Flash芯片的写入
+#define WRITE_DISABLE						0X04  // 禁止Flash芯片的写入
+#define READ_STATUS_REGISTER_1				0X05  // 判断Flash读取工作的状态(S7-S0)
+#define READ_STATUS_REGISTER_2				0X35  // 判断Flash读取工作的状态(S15-S8)
+#define WRITE_STATUS_REGISTER				0X01  // 判断Flash写入工作的状态
+#define PAGE_PROGRAM						0X02  // 一次最多写入256个字节（页编程）
+#define QUAD_PAGE_PROGRAM					0X32  // 四倍页编程
+#define BLOCK_ERASE_64						0xD8  // 64KB（块擦除）
+#define BLOCK_ERASE_32						0X52  // 32KB（块擦除）
+#define SECTOR_ERASE_4						0X20  // 4KB（扇区擦除）
+#define CHIP_ERASE							0XC7  // 全片擦除
+#define ERASE_SUSPEND						0X75  // 暂停擦除
+#define ERASE_RESUNME						0X7A  // 恢复擦除
+#define POWER_DOWN							0XB9  // 掉电模式
+#define HIGH_PERFORMANCE_MODE				0XA3  // 高性能模式
+#define MODE_BIT_RESET						0XFF  // 状态位复位
+#define RELEASE_POWER_DOWN_OR_HPM_DEVICE_ID 0XAB  // 解除低功耗或者高性能模式
+#define MANUFACTURER_DEVICE_ID				0X90  // 读取制造商/芯片ID
+#define READ_UNIQUE_ID						0X4B  // 读取唯一ID
+#define JEDEC_ID							0X9F  // JEDEC ID
 
-// Instruction Set Table 2 (Read Instructions)
-#define READ_DATA			  0X03
-#define FAST_READ			  0X0B
-#define FAST_READ_DUAL_OUTPUT 0X3B
-#define FAST_READ_DUAL_IO	  0XBB
-#define FAST_READ_QUAD_OUTPUT 0X6B
-#define FAST_READ_QUAD_IO	  0XEB
+/* Read — Command */
+#define READ_DATA			  0X03	// 读数据
+#define FAST_READ			  0X0B	// 快速读
+#define FAST_READ_DUAL_OUTPUT 0X3B	// 快速读双输出
+#define FAST_READ_DUAL_IO	  0XBB	// 快速读双路
+#define FAST_READ_QUAD_OUTPUT 0X6B	// 快速读四路输出
+#define FAST_READ_QUAD_IO	  0XEB	// 快速读四路
 
 #define SPI_Flash_CS_LOW(x)	 HAL_GPIO_WritePin(SPI1_CS_FLASH_GPIO_Port, SPI1_CS_FLASH_Pin, x)
 #define SPI_Flash_CS_HIGH(x) HAL_GPIO_WritePin(SPI1_CS_FLASH_GPIO_Port, SPI1_CS_FLASH_Pin, x)

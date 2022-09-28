@@ -10,8 +10,8 @@
 /* file 'LICENSE.txt', which is part of this source code package.*/
 /*****************************************************************/
 
-#ifndef __DRV_SPI_H__
-#define __DRV_SPI_H__
+#ifndef __BSP_SPI_H__
+#define __BSP_SPI_H__
 
 #ifdef __cplusplus
 extern "C" {
@@ -57,7 +57,7 @@ typedef enum {
 	SPI_SEL_NONE,
 	SPI_SEL_Flash,
 	SPI_SEL_LCD,
-} spi_sel_t_e;	// Flash���ڲ���SPIͨ���Ƿ��ͨ
+} spi_sel_t_e;	// Flash用于测试SPI通信是否调通
 
 typedef enum {
 	SPI_CS_DOWN,
@@ -70,29 +70,31 @@ typedef enum {
 	SPI_RECEIVE,
 } spi_send_state_e;
 
-typedef struct spi_Device_t {  // spi�豸����
+typedef struct spi_Device_t {  // 设备对象
 
-	//����
+	// 属性
 	SPI_HandleTypeDef *spix;
-	spi_sel_t_e		   spi_id;	//�豸id,��ͬһ��SPI�豸�ϣ�SPI1����SPI2�Ͽ����кܶ��豸��������ID���������ǣ�
-	uint8_t			   cs_status;  //Ƭѡ�ߵ�״̬
+	spi_sel_t_e
+			spi_id;	 // 设备id，在同一个spi设备上，spi1或者spi2上可以有很多设备，这里用ID来区分他们
+	uint8_t cs_status;	// 片选线状态
 
 	uint8_t is_vaild : 1;
 	uint8_t send_state : 2;
 
-	//����
+	// 操作
 	void (*spi_set_cs)(struct spi_Device_t *, GPIO_PinState);
 
 } SPI_Device, *p_SPI_Device;
 
-typedef spi_err_type_e spi_err;	 //����ⲿ��������ͽ��й۲⣬����Ҫֱ��ʹ��spi_err_type_e
+typedef spi_err_type_e spi_err;	 // 别称外部用这个类型进行观测，而不要直接使用spi_err_type_t
 
 /*--- Public variable declarations ----------------------------------------------------*/
 // extern SPI_Device SPI[SPI_NUM];
-extern spi_err spi_err_state;  //ȫ�֣��ⲿ���Թ۲�spi�豸״̬,Ҫ�۲�ֱ���ڸ�.c�ļ��ж���spi_err spi_err_state����
+extern spi_err spi_err_state;  // 全局，外部可以观测spi设备状态，要观测直接在该.c文件中定义spi_err
+							   // spi_err_state变量
 
 /*--- Public function declarations ----------------------------------------------------*/
-/*---------------- �����API�ӿ� ----------------*/
+/*----------------对外的API接口----------------*/
 spi_err bsp_spi_write(spi_sel_t_e sel, uint8_t *pTxData, uint16_t Size);
 spi_err bsp_spi_read(spi_sel_t_e sel, uint8_t *pRxData, uint16_t Size);
 spi_err bsp_spi_write_read(spi_sel_t_e sel, uint8_t *pTxData, uint8_t *pRxData, uint16_t Size);

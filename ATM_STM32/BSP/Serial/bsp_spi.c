@@ -25,16 +25,17 @@ extern "C" {
 #define HAL_LIB		(1)
 #define STANDER_LIB (0)
 
-#define ACTIVE	 (GPIO_PIN_RESET)
+#define ACTIVE	 (GPIO_PIN_RESET)  // 片选低电平为选中
 #define INACTIVE (GPIO_PIN_SET)
 
-#define SPI_TIMEOUT_US	 (1000)			   //�ͨ�ŵȴ�ʱ��
-#define GET_SYSTEME_US() Get_systime_ms()  //��ȡ��������ϵͳ��ʱ��
+#define SPI_TIMEOUT_US	 (1000)			   // 最长通信等待时间
+#define GET_SYSTEME_US() Get_systime_ms()  // 获取开机以来系统的时间（ms）
 
 #define CS_FLASH(x) HAL_GPIO_WritePin(SPI1_CS_FLASH_GPIO_Port, SPI1_CS_FLASH_Pin, x)
 #define CS_LCD(x)	HAL_GPIO_WritePin(SPI2_CS_LCD_GPIO_Port, SPI2_CS_LCD_Pin, x)
 
 /*--- Private function declarations --------------------------------------------------------*/
+// 设置对应引脚的拉低和拉高操作
 static void bsp_spi_set_gpio(spi_sel_t_e sel, GPIO_PinState op);
 
 void spi_set_cs(SPI_Device *p_Dev, GPIO_PinState op);
@@ -81,8 +82,8 @@ static void bsp_spi_set_gpio(spi_sel_t_e sel, GPIO_PinState op) {
 	case SPI_SEL_LCD: CS_LCD(op); break;
 
 	default:
-		CS_FLASH(GPIO_PIN_SET);
-		CS_LCD(GPIO_PIN_SET);
+		CS_FLASH(INACTIVE);
+		CS_LCD(INACTIVE);
 		break;
 
 #elif STANDER_LIB
@@ -94,11 +95,11 @@ static void bsp_spi_set_gpio(spi_sel_t_e sel, GPIO_PinState op) {
 /* cs setting func */
 void spi_set_cs(SPI_Device *p_Dev, GPIO_PinState op) {
 	spi_sel_t_e sel = p_Dev->spi_id;
-	bsp_spi_set_gpio(sel, op);	//����GPIO�ĺ���
+	bsp_spi_set_gpio(sel, op);	// 设置GPIO的函数
 }
 
 SPI_Device *get_spi_handle(spi_sel_t_e sel) {
-	return &SPI[sel - 1];  //����id������Ӧ���豸����
+	return &SPI[sel - 1];  // 根据id返回相应的设备对象
 }
 
 HAL_StatusTypeDef haha;
@@ -124,7 +125,7 @@ spi_err bsp_spi_write(spi_sel_t_e sel, uint8_t *pTxData, uint16_t Size) {
 	}
 
 #elif STANDER_LIB
-	//... ��׼��
+	//... 标准库
 	SPI_I2S_SendData(p_Dev->spix->Instance, *(tx));
 
 #endif /* LIB_TYPE */
@@ -152,7 +153,7 @@ spi_err bsp_spi_read(spi_sel_t_e sel, uint8_t *pRxData, uint16_t Size) {
 
 	HAL_StatusTypeDef state;
 
-	state = HAL_SPI_Receive(spi->spix, pRxData, Size, SPI_TIMEOUT_US);	//����
+	state = HAL_SPI_Receive(spi->spix, pRxData, Size, SPI_TIMEOUT_US);	// 接收
 
 	if(state != HAL_OK) {
 		spi_state_err = set_spi_err_state(SPI_ERR_RECEIVE);
@@ -189,7 +190,7 @@ spi_err bsp_spi_write_read(spi_sel_t_e sel, uint8_t *pTxData, uint8_t *pRxData, 
 
 	HAL_StatusTypeDef state;
 
-	state = HAL_SPI_TransmitReceive(spi->spix, pTxData, pRxData, Size, SPI_TIMEOUT_US);	 //����
+	state = HAL_SPI_TransmitReceive(spi->spix, pTxData, pRxData, Size, SPI_TIMEOUT_US);	 // 接收
 
 	if(state != HAL_OK) {
 		spi_state_err = set_spi_err_state(SPI_ERR_RECEIVE);
@@ -214,9 +215,9 @@ R_ERR:
 }
 
 /*
- ����ֵ����0˵�����ͻ���մ���
+	返回值大于0说明发送或接受错误
 */
-//�������Ͷ���ֽڣ������������ն���ֽ�
+// 连续发送多个字节，并且连续接收多个字节
 spi_err bsp_spi_Transfer(spi_sel_t_e sel,
 						 uint8_t	 *pTxData,
 						 uint8_t	 *pRxData,
@@ -233,16 +234,16 @@ spi_err bsp_spi_Transfer(spi_sel_t_e sel,
 	HAL_StatusTypeDef state_tx;
 	HAL_StatusTypeDef state_rx;
 
-	//��������
+	// 连续发送
 	while(tSize--) {
 		state_tx = HAL_SPI_Transmit(spi->spix, pTxData, tSize, SPI_TIMEOUT_US);
 
 		// haha = state_tx;
 
 		if(state_tx != HAL_OK) {
-			spi_state_err = set_spi_err_state(
-				SPI_ERR_TRANSMIT);	// Transmit maybe error,but it can also beuse for flash get id.
-									// goto T_ERR;
+			spi_state_err =
+				set_spi_err_state(SPI_ERR_TRANSMIT);  // Transmit maybe error,but it can also beuse
+													  // for flash get id. goto T_ERR;
 		} else {
 			spi_state_err = set_spi_err_state(SPI_ERR_NONE);
 		}
@@ -274,7 +275,7 @@ R_ERR:
 /* ------------------------------------- NO CS ------------------------------------- */
 /**
  * @brief
- * ���ֺܶ��豸����ϣ��������������cs����Ϊ������CS��ʱ�������ܻ���Ҫ����һЩ������������Щ������Ҫ������������CS
+ * 发现很多设备都不希望我们自行拉低cs，因为在拉低CS的时候候面会想要跟上一些东西，调用这些函数需要自行拉低拉高CS
  * @note
  */
 
@@ -297,7 +298,7 @@ spi_err bsp_spi_write_NO_CS(spi_sel_t_e sel, uint8_t *pTxData, uint16_t Size) {
 	}
 
 #elif STANDER_LIB
-	//... ��׼��
+	//... 标准库
 	SPI_I2S_SendData(p_Dev->spix->Instance, *(tx));
 
 #endif /* LIB_TYPE */
